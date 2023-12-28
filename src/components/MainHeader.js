@@ -2,13 +2,15 @@ class MainHeader extends HTMLElement {
   // 엘리먼트 생성 시 생성자 호출됨
   constructor() {
     super();
+  }
 
-    console.log("element created", this);
+  // 엘리먼트가 DOM에 추가되면 connectedCallback 호출됨
+  connectedCallback() {
     this.innerHTML = `
 <header class="border-bottom pt-md">
   <div class="margin-align container pt-md pb-xl">
     <div class="flex-container align-center">
-      <a href="#" class="link-button h3">🐈 우리펫푸드</a>
+      <a href="#" class="logo h3">🐈 우리펫푸드</a>
       <span class="grow"></span>
       <div class="flex-container gap-lg">
         <a href="#" class="link-button fs-md">로그인</a>
@@ -25,11 +27,6 @@ class MainHeader extends HTMLElement {
     </div>
   </div>
 </header>`;
-  }
-
-  // 엘리먼트가 DOM에 추가되면 connectedCallback 호출됨
-  connectedCallback() {
-    console.log("connected", this);
   }
   // 반대로 엘리먼트가 DOM에서 제거되면 disconnectedCallback 호출됨
   disconnectedCallback() {

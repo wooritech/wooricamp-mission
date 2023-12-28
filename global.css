@@ -89,10 +89,12 @@ body {
 .link-button {
   color: black;
   text-decoration: none;
+  opacity: 0.5;
 }
 
 .link-button:hover {
   text-decoration: underline;
+  opacity: 1;
 }
 
 .red {
@@ -148,4 +150,9 @@ h-full {
 
 .margin-align {
   margin: 0 auto;
+}
+
+.logo {
+  text-decoration: none;
+  color: #000;
 }
