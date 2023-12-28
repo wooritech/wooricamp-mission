@@ -1,0 +1,151 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.h1 {
+  font-size: 32px;
+}
+
+.h2 {
+  font-size: 26px;
+}
+
+.h3 {
+  font-size: 22px;
+}
+
+.h4 {
+  font-size: 18px;
+}
+
+.h5 {
+  font-size: 16px;
+}
+
+.fs-xs {
+  font-size: 10px;
+}
+.fs-sm {
+  font-size: 14px;
+}
+.fs-md {
+  font-size: 16px;
+}
+.fs-lg {
+  font-size: 18px;
+}
+.fs-xl {
+  font-size: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1300px;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.gap-md {
+  gap: 10px;
+}
+
+.gap-lg {
+  gap: 16px;
+}
+
+.fw-bold {
+  font-weight: 700;
+}
+
+.fw-semi-bold {
+  font-weight: 600;
+}
+
+.button {
+  background: none;
+  font-weight: 600;
+}
+
+.link-button {
+  color: black;
+  text-decoration: none;
+}
+
+.link-button:hover {
+  text-decoration: underline;
+}
+
+.red {
+  background-color: lightcoral;
+}
+
+.green {
+  background-color: lightgreen;
+}
+
+.blue {
+  background-color: lightblue;
+}
+
+.pt-md {
+  padding-top: 16px;
+}
+
+.pb-xl {
+  padding-bottom: 20px;
+}
+
+h-full {
+  height: 100%;
+}
+
+.menu-button {
+  width: 100px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.menu-button > a {
+  color: black;
+  text-decoration: none;
+}
+.menu-button > a:hover {
+  text-decoration: underline;
+}
+
+.menu-button-left {
+  justify-content: start;
+}
+
+.menu-button-right {
+  justify-content: end;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #a3a3a3;
+}
+
+.margin-align {
+  margin: 0 auto;
+}
