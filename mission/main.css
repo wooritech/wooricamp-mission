@@ -1,0 +1,41 @@
+.inner {
+  width: 1920px;
+  height: 143px;
+  top: -1480px;
+  left: -1036px;
+  border: 0, 0, 1px, 0;
+  padding: 16px, 0, 0, 0;
+  background-color: green;
+  position: relative;
+}
+
+.inner .logo .img {
+  position: absolute;
+  top: 10px;
+  left: 100px;
+}
+
+.inner .sub-menu .menu {
+  position: absolute;
+  top: 10px;
+  right: 100px;
+  display: flex;
+}
+
+.inner .main-menu {
+  position: relative;
+}
+
+.inner .main-menu .pet {
+  position: absolute;
+  left: 100px;
+  top: 80px;
+  display: flex;
+}
+
+.inner .main-menu .my {
+  position: absolute;
+  right: 100px;
+  top: 80px;
+  display: flex;
+}
