@@ -1,41 +1,108 @@
-.inner {
-  width: 1920px;
+* {
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.head {
   height: 143px;
-  top: -1480px;
-  left: -1036px;
   border: 0, 0, 1px, 0;
   padding: 16px, 0, 0, 0;
   background-color: green;
   position: relative;
+  text-align: center;
 }
 
-.inner .logo .img {
+.head .inner {
+  height: 127px;
+  padding: 0, 24, 0, 24;
+  background-color: orange;
   position: absolute;
-  top: 10px;
-  left: 100px;
+  box-sizing: border-box;
+  left: 310px;
+  top: 16px;
 }
 
-.inner .sub-menu .menu {
+.head .inner .one {
+  width: 1252px;
+  height: 67px;
+  padding: 16px, 0, 20px, 0;
+  background-color: blue;
   position: absolute;
-  top: 10px;
-  right: 100px;
+  box-sizing: border-box;
+  left: 24px;
+}
+
+.inner .one .logo {
+  width: 129px;
+  height: 31px;
+  position: absolute;
+  left: 0;
+}
+
+.inner .one .menu .sign {
+  width: 120px;
+  height: 25px;
+  position: absolute;
+  right: 0px;
   display: flex;
+  list-style: none;
+  color: gray;
 }
 
-.inner .main-menu {
-  position: relative;
+.inner .one .menu .sign li a {
+  padding-left: 10px;
 }
 
-.inner .main-menu .pet {
+.head .inner .two {
+  width: 1252px;
+  height: 60px;
+  background-color: red;
   position: absolute;
-  left: 100px;
-  top: 80px;
-  display: flex;
+  left: 24px;
+  top: 64px;
 }
 
-.inner .main-menu .my {
+.inner .two .pets {
+  width: 200px;
+  height: 60px;
   position: absolute;
-  right: 100px;
-  top: 80px;
-  display: flex;
+  left: 0;
 }
+
+.inner .two .pets .pet {
+  width: 200px;
+  height: 60px;
+  display: flex;
+  list-style: none;
+  float: left;
+}
+
+.inner .two .pets .pet li a {
+  padding-right: 55px;
+}
+
+.inner .two .my {
+  width: 200px;
+  height: 60px;
+  position: absolute;
+  right: 0;
+  box-sizing: border-box;
+}
+
+.inner .two .my .me {
+  width: 200px;
+  height: 60px;
+  position: absolute;
+  right: 0;
+  display: flex;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+.inner .two .my .me li a {
+  padding-left: 37px;
+}
+
