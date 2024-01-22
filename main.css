@@ -12,9 +12,6 @@ ul {
 .head {
   width: 100%;
   height: 143px;
-  /* border: 0, 0, 1px, 0;
-  padding: 16px, 0, 0, 0; */
-  background-color: green;
   position: fixed;
   top: 0;
   z-index: 9;
@@ -23,7 +20,6 @@ ul {
 .inner {
   width: 70%;
   height: 127px;
-  background-color: orange;
   position: absolute;
   top: 16px;
   left: 15%;
@@ -32,8 +28,6 @@ ul {
 .head .inner .header-line-one {
   width: 90%;
   height: 67px;
-  /* padding: 16px, 0, 20px, 0; */
-  background-color: blue;
   position: absolute;
   box-sizing: border-box;
   left: 5%;
@@ -61,7 +55,6 @@ ul {
 .head .inner .header-line-two {
   width: 90%;
   height: 60px;
-  background-color: red;
   position: absolute;
   left: 5%;
   top: 67px;
