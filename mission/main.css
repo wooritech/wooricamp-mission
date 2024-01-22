@@ -1,108 +1,97 @@
-* {
-  padding: 0;
-}
 a {
   text-decoration: none;
   color: inherit;
 }
 
-.head {
-  height: 143px;
-  border: 0, 0, 1px, 0;
-  padding: 16px, 0, 0, 0;
-  background-color: green;
-  position: relative;
-  text-align: center;
+ul {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
 }
 
-.head .inner {
+.head {
+  width: 100%;
+  height: 143px;
+  /* border: 0, 0, 1px, 0;
+  padding: 16px, 0, 0, 0; */
+  background-color: green;
+  position: fixed;
+  top: 0;
+  z-index: 9;
+}
+
+.inner {
+  width: 70%;
   height: 127px;
-  padding: 0, 24, 0, 24;
   background-color: orange;
   position: absolute;
-  box-sizing: border-box;
-  left: 310px;
   top: 16px;
+  left: 15%;
 }
 
-.head .inner .one {
-  width: 1252px;
+.head .inner .header-line-one {
+  width: 90%;
   height: 67px;
-  padding: 16px, 0, 20px, 0;
+  /* padding: 16px, 0, 20px, 0; */
   background-color: blue;
   position: absolute;
   box-sizing: border-box;
-  left: 24px;
+  left: 5%;
 }
 
-.inner .one .logo {
-  width: 129px;
-  height: 31px;
+.inner .header-line-one .logo {
   position: absolute;
   left: 0;
 }
 
-.inner .one .menu .sign {
+.inner .header-line-one .menu .sign {
   width: 120px;
   height: 25px;
   position: absolute;
+  top: 20px;
   right: 0px;
   display: flex;
   list-style: none;
-  color: gray;
 }
 
-.inner .one .menu .sign li a {
+.inner .header-line-one .menu .sign li a {
   padding-left: 10px;
 }
 
-.head .inner .two {
-  width: 1252px;
+.head .inner .header-line-two {
+  width: 90%;
   height: 60px;
   background-color: red;
   position: absolute;
-  left: 24px;
-  top: 64px;
+  left: 5%;
+  top: 67px;
 }
 
-.inner .two .pets {
-  width: 200px;
-  height: 60px;
+.inner .header-line-two .pets .pet {
+  width: auto;
+  height: 25px;
   position: absolute;
-  left: 0;
-}
-
-.inner .two .pets .pet {
-  width: 200px;
-  height: 60px;
-  display: flex;
+  left: 0px;
+  top: 20px;
   list-style: none;
-  float: left;
+  display: flex;
 }
 
-.inner .two .pets .pet li a {
-  padding-right: 55px;
+.inner .header-line-two .pets .pet li a {
+  padding-right: 10px;
 }
 
-.inner .two .my {
-  width: 200px;
-  height: 60px;
+.inner .header-line-two .my .me {
+  width: auto;
+  height: 25px;
   position: absolute;
   right: 0;
-  box-sizing: border-box;
-}
-
-.inner .two .my .me {
-  width: 200px;
-  height: 60px;
-  position: absolute;
-  right: 0;
+  top: 20px;
   display: flex;
   list-style: none;
-  box-sizing: border-box;
 }
 
-.inner .two .my .me li a {
-  padding-left: 37px;
+.inner .header-line-two .my .me li a {
+  padding-left: 10px;
 }
 

@@ -1,0 +1,13 @@
+head {
+  width: 100%;
+  background-color: green;
+  border-bottom: 1px solid orange;
+  position: fixed;
+  top: 0px;
+  z-index: 9;
+}
+.inner {
+  width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
