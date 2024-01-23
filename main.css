@@ -92,5 +92,51 @@ ul {
 
 .main-page {
   width: 100%;
-  height: 2500px;
+  height: 2038px;
+}
+/* 메인 캐러셀 */
+.carousel_main {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  user-select: none;
+}
+
+.carousel_wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transition: transform 1s;
+}
+
+.carousel_slide {
+  flex: 0 0 100%;
+  position: relative;
+}
+
+.carousel_slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel_pagination {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.carousel_circle {
+  width: 20px;
+  height: 20px;
+  background-color: #aaa;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
 }
