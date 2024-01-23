@@ -32,14 +32,19 @@ bullets.forEach((bullet, index) => {
 
 showSlide(0);
 
+// 자동 슬라이드 구현하기 1안
+
 let timer = undefined;
 
 function autoSlide() {
     if(timer == undefined) {
         timer = setInterval(function() {
             //자동으로 변할 값
-   
+            
         }, 3000);
     }
 }
 autoSlide();
+
+// 자동 슬라이드 구현하기 2안
+
