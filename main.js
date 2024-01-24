@@ -55,7 +55,7 @@ slideItems[slideItems.length - 1].after(startElem);
 
 // 슬라이드 전체를 선택해 값을 변경해주기 위해 슬라이드 전체 선택하기
 slideItems = document.querySelectorAll(".carousel_slide");
-//
+
 let offset = slideWidth + currSlide;
 slideItems.forEach((i) => {
   i.setAttribute("style", `left: ${-offset}px`);
@@ -64,12 +64,12 @@ slideItems.forEach((i) => {
 
 // 앞뒤 범위를 초과하지 않게 만들기
 function nextMove() {
-  currSlide++;
-  if (currSlide <= maxSlide) {
-    const offset = slideWidth * currSlide;
-    slideItems.forEach((i) => {
+  currSlide++; //슬라이드 번호 1 상승
+  if (currSlide <= maxSlide) { //불린 데이터 반환
+    const offset = slideWidth * currSlide; //슬라이드 크기 * tmffkdlem qjsgh
+    slideItems.forEach((i) => {//슬라이드 전체 크기많큼 반복 순회 
       i.setAttribute("style", `left: ${-offset}px`);
-    });
+    });//setAttribute('속성이름','속성값') 속성이름에 속성값 할당
     paginationItems.forEach((i) => i.classList.remove("active"));
     paginationItems[currSlide - 1].classList.add("active");
   } else {
@@ -80,12 +80,11 @@ function nextMove() {
     });
     currSlide++;
     offset = slideWidth * currSlide;
-    setTimeout(() => {
+    setTimeout(() => {//setTimeout 특정시간 지난 후 코드 실행 함수
       slideItems.forEach((i) => {
-        // i.setAttribute("style", `transition: ${0}s; left: ${-offset}px`);
         i.setAttribute("style", `transition: ${0.15}s; left: ${-offset}px`);
       });
-    }, 0);
+    }, 0);//딜레이 0
     paginationItems.forEach((i) => i.classList.remove("active"));
     paginationItems[currSlide - 1].classList.add("active");
   }
