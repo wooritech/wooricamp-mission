@@ -90,7 +90,7 @@ function prevMove() {
     paginationItems[currSlide - 1].classList.add("active");
   }
 }
-// 페이지네이션 생성
+// 페이지네이션 버튼 생성
 for (let i = 0; i < maxSlide; i++) {
   if (i === 0) pagination.innerHTML += `<li class="active">•</li>`;
   else pagination.innerHTML += `<li>•</li>`;
@@ -98,7 +98,7 @@ for (let i = 0; i < maxSlide; i++) {
 
 const paginationItems = document.querySelectorAll(".slide_pagination > li");
 
-// 각 페이지네이션 클릭 시 해당 슬라이드로 이동하기
+// 페이지네이션 작동 버튼
 for (let i = 0; i < maxSlide; i++) {
   paginationItems[i].addEventListener("click", () => {//클릭하면 동작
     currSlide = i + 1; //i는 클릭한 슬라이드 번호 1은 기본 슬라이드 1번
