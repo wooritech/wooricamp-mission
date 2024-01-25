@@ -1,26 +1,17 @@
-
 // new Swiper('.carousel_main .carousel_wrapper', {
 //     loop: true,
 //     autoplay: {
-//         delay: 3000
+//         delay: 3000x
 //     }
 // }); swiper.js 라이브러리 없으면 작동 안함
 
-const slide = document.querySelector('.carousel_wrapper');
+let slide = document.querySelector('.carousel_wrapper');
 let slideWidth = slide.clientWidth;//슬라이드 크기 구하기 //clientWidth 요소의 가로값 가져오기
 let slideItems = document.querySelectorAll(".carousel_slide");// 값 변경을 위한 슬라이드 전체 선택
-const maxSlide = slideItems.length;//최대값이 보유한 슬라이드 수를 넘기지 않도록
+let maxSlide = slideItems.length;//최대값이 보유한 슬라이드 수를 넘기지 않도록
+let pagination = document.querySelector(".slide_pagination");
 let currSlide = 1;//버튼 클릭시 현재 슬라이드 위치 나타내기
 
-// 페이지네이션 생성
-const pagination = document.querySelector(".slide_pagination");
-
-for (let i = 0; i < maxSlide; i++) {
-  if (i === 0) pagination.innerHTML += `<li class="active">•</li>`;
-  else pagination.innerHTML += `<li>•</li>`;
-}
-
-const paginationItems = document.querySelectorAll(".slide_pagination > li");
 
 // 무한 슬라이드
 const startSlide = slideItems[0];
@@ -100,6 +91,13 @@ function prevMove() {
     paginationItems[currSlide - 1].classList.add("active");
   }
 }
+// 페이지네이션 생성
+for (let i = 0; i < maxSlide; i++) {
+  if (i === 0) pagination.innerHTML += `<li class="active">•</li>`;
+  else pagination.innerHTML += `<li>•</li>`;
+}
+
+const paginationItems = document.querySelectorAll(".slide_pagination > li");
 
 // 각 페이지네이션 클릭 시 해당 슬라이드로 이동하기
 for (let i = 0; i < maxSlide; i++) {
