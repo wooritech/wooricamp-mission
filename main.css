@@ -104,12 +104,12 @@ ul {
   width: 100%;
   height: 100%;
   display: flex;
-  transition: transform 1s;
 }
 
 .carousel_slide {
   flex: 0 0 100%;
   position: relative;
+  transition: left 1s; /* js이동 방향을 지정할 경우에는 transform */
 }
 
 .carousel_slide img {
@@ -119,19 +119,20 @@ ul {
   object-fit: cover;
 }
 
-.carousel_pagination {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
+/* 페이지네이션*/
+ul,
+li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
-
-.carousel_circle {
-  width: 20px;
-  height: 20px;
-  background-color: #aaa;
-  border-radius: 50%;
-  margin: 0 5px;
+.slide_pagination {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+}
+.slide_pagination > li {
   cursor: pointer;
+  font-size: 50px;
 }
