@@ -5,10 +5,10 @@
 //     }
 // }); swiper.js 라이브러리 없으면 작동 안함
 
-let slide = document.querySelector('.carousel_wrapper');
-let slideWidth = slide.clientWidth;//슬라이드 크기 구하기 //clientWidth 요소의 가로값 가져오기
+const slide = document.querySelector('.carousel_wrapper');
+const slideWidth = slide.clientWidth;//슬라이드 크기 구하기 //clientWidth 요소의 가로값 가져오기
 let slideItems = document.querySelectorAll(".carousel_slide");// 값 변경을 위한 슬라이드 전체 선택
-let maxSlide = slideItems.length;//최대값이 보유한 슬라이드 수를 넘기지 않도록
+const maxSlide = slideItems.length;//최대값이 보유한 슬라이드 수를 넘기지 않도록
 const pagination = document.querySelector(".slide_pagination");
 let currSlide = 1;//버튼 클릭시 현재 슬라이드 위치 나타내기
 
