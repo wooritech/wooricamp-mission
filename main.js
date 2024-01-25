@@ -1,7 +1,7 @@
 // new Swiper('.carousel_main .carousel_wrapper', {
 //     loop: true,
 //     autoplay: {
-//         delay: 3000
+//         delay: 3000x
 //     }
 // }); swiper.js 라이브러리 없으면 작동 안함
 
@@ -9,7 +9,6 @@ const slide = document.querySelector('.carousel_wrapper');
 const slideWidth = slide.clientWidth;//슬라이드 크기 구하기 //clientWidth 요소의 가로값 가져오기
 let slideItems = document.querySelectorAll(".carousel_slide");// 값 변경을 위한 슬라이드 전체 선택
 const maxSlide = slideItems.length;//최대값이 보유한 슬라이드 수를 넘기지 않도록
-const pagination = document.querySelector(".slide_pagination");
 let currSlide = 1;//버튼 클릭시 현재 슬라이드 위치 나타내기
 
 
@@ -91,7 +90,7 @@ function prevMove() {
     paginationItems[currSlide - 1].classList.add("active");
   }
 }
-// 페이지네이션 버튼 생성
+// 페이지네이션 생성
 for (let i = 0; i < maxSlide; i++) {
   if (i === 0) pagination.innerHTML += `<li class="active">•</li>`;
   else pagination.innerHTML += `<li>•</li>`;
@@ -99,7 +98,7 @@ for (let i = 0; i < maxSlide; i++) {
 
 const paginationItems = document.querySelectorAll(".slide_pagination > li");
 
-// 페이지네이션 작동 버튼
+// 각 페이지네이션 클릭 시 해당 슬라이드로 이동하기
 for (let i = 0; i < maxSlide; i++) {
   paginationItems[i].addEventListener("click", () => {//클릭하면 동작
     currSlide = i + 1; //i는 클릭한 슬라이드 번호 1은 기본 슬라이드 1번
