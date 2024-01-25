@@ -7,37 +7,22 @@
 // }); swiper.js 라이브러리 없으면 작동 안함
 
 const slide = document.querySelector('.carousel_wrapper');
-const bullets = document.querySelectorAll('.carousel_circle');
-
-let currentSlide = 0;//스타벅스에서는 isHidePromotion = false;를 사용했었다.
-
-function showSlide(slideIndex) {
-    slide.style.transform = `translateX(-${slideIndex * 100}%)`;//화면 넘어가는 크기 설정
-    currentSlide = slideIndex;
-
-    bullets.forEach((bullet, index) => { //배열 순회
-        if (index === currentSlide) {
-            bullet.classList.add('active');//숨김처리
-        } else {
-            bullet.classList.remove('active');//보임처리
-        }
-    });
-}
-
-bullets.forEach((bullet, index) => {
-    bullet.addEventListener('click', () => {
-        showSlide(index);
-    });
-});
-
-showSlide(0);
-
 let slideWidth = slide.clientWidth;//슬라이드 크기 구하기 //clientWidth 요소의 가로값 가져오기
 let slideItems = document.querySelectorAll(".carousel_slide");// 값 변경을 위한 슬라이드 전체 선택
 const maxSlide = slideItems.length;//최대값이 보유한 슬라이드 수를 넘기지 않도록
-
 let currSlide = 1;//버튼 클릭시 현재 슬라이드 위치 나타내기
 
+// 페이지네이션 생성
+const pagination = document.querySelector(".slide_pagination");
+
+for (let i = 0; i < maxSlide; i++) {
+  if (i === 0) pagination.innerHTML += `<li class="active">•</li>`;
+  else pagination.innerHTML += `<li>•</li>`;
+}
+
+const paginationItems = document.querySelectorAll(".slide_pagination > li");
+
+// 무한 슬라이드
 const startSlide = slideItems[0];
 const endSlide = slideItems[slideItems.length - 1];
 const startElem = document.createElement("div");
@@ -114,6 +99,24 @@ function prevMove() {
     paginationItems.forEach((i) => i.classList.remove("active"));
     paginationItems[currSlide - 1].classList.add("active");
   }
+}
+
+// 각 페이지네이션 클릭 시 해당 슬라이드로 이동하기
+for (let i = 0; i < maxSlide; i++) {
+  // 각 페이지네이션마다 클릭 이벤트 추가하기
+  paginationItems[i].addEventListener("click", () => {
+    // 클릭한 페이지네이션에 따라 현재 슬라이드 변경해주기(currSlide는 시작 위치가 1이기 때문에 + 1)
+    currSlide = i + 1;
+    // 슬라이드를 이동시키기 위한 offset 계산
+    const offset = slideWidth * currSlide;
+    // 각 슬라이드 아이템의 left에 offset 적용
+    slideItems.forEach((i) => {
+      i.setAttribute("style", `left: ${-offset}px`);
+    });
+    // 슬라이드 이동 시 현재 활성화된 pagination 변경
+    paginationItems.forEach((i) => i.classList.remove("active"));
+    paginationItems[currSlide - 1].classList.add("active");
+  });
 }
 
 // 브라우저 화면이 조정될 때 마다 slideWidth를 변경하기 위해
