@@ -109,7 +109,7 @@ ul {
 .carousel_slide {
   flex: 0 0 100%;
   position: relative;
-  transition: left 1s; /* js이동 방향을 지정할 경우에는 transform */
+  transition: left .8s; /* js이동 방향을 지정할 경우에는 transform */
 }
 
 .carousel_slide img {
