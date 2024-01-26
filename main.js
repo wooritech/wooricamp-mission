@@ -39,7 +39,7 @@ slideItems.forEach((i) => {
 
 // 앞뒤 범위를 초과하지 않게 만들기
 
-const slide_durattion = .8;
+const SLIDE_DURATTION = .8;
 
 function nextMove() {
   slideNum++; //슬라이드 번호 1 상승
@@ -61,7 +61,7 @@ function nextMove() {
     offset = slideWidth * slideNum;
     setTimeout(() => {//setTimeout 특정시간 지난 후 코드 실행 함수
       slideItems.forEach((i) => {
-        i.setAttribute("style", `transition: ${slide_durattion}s; left: ${-offset}px`);
+        i.setAttribute("style", `transition: ${SLIDE_DURATTION}s; left: ${-offset}px`);
       });
     }, 0);//딜레이 0
     paginationItems.forEach((i) => i.classList.remove("active"));
@@ -87,7 +87,7 @@ function prevMove() {
     offset = slideWidth * slideNum;
     setTimeout(() => {
       slideItems.forEach((i) => {
-       i.setAttribute("style", `transition: ${slide_durattion}s; left: ${-offset}px`);
+       i.setAttribute("style", `transition: ${SLIDE_DURATTION}s; left: ${-offset}px`);
       });
     }, 0);
     paginationItems.forEach((i) => i.classList.remove("active"));
