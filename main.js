@@ -10,7 +10,7 @@ const slideWidth = slide.clientWidth;//슬라이드 크기 구하기 //clientWid
 let slideItems = document.querySelectorAll(".carousel_slide");// 값 변경을 위한 슬라이드 전체 선택
 const maxSlide = slideItems.length;//최대값이 보유한 슬라이드 수를 넘기지 않도록
 const pagination = document.querySelector(".slide_pagination");
-let Slidenum = 1;//버튼 클릭시 현재 슬라이드 위치 나타내기
+let slideNum = 1;//버튼 클릭시 현재 슬라이드 위치 나타내기
 
 
 // 무한 슬라이드
@@ -32,7 +32,7 @@ slideItems[slideItems.length - 1].after(startElem);
 // 슬라이드 전체를 선택해 값을 변경해주기 위해 슬라이드 전체 선택하기
 slideItems = document.querySelectorAll(".carousel_slide");
 
-let offset = slideWidth + Slidenum;
+let offset = slideWidth + slideNum;
 slideItems.forEach((i) => {
   i.setAttribute("style", `left: ${-offset}px`);
 });
@@ -40,55 +40,55 @@ slideItems.forEach((i) => {
 
 // 앞뒤 범위를 초과하지 않게 만들기
 function nextMove() {
-  Slidenum++; //슬라이드 번호 1 상승
-  if (Slidenum <= maxSlide) { //불린 데이터 반환
-    const offset = slideWidth * Slidenum; //슬라이드 크기 * tmffkdlem qjsgh
+  slideNum++; //슬라이드 번호 1 상승
+  if (slideNum <= maxSlide) { //불린 데이터 반환
+    const offset = slideWidth * slideNum; //슬라이드 크기 * 슬라이드 번호
     slideItems.forEach((i) => {//슬라이드 전체 크기많큼 반복 순회 
       i.setAttribute("style", `left: ${-offset}px`);
     });//setAttribute('속성이름','속성값') 속성이름에 속성값 할당
     paginationItems.forEach((i) => i.classList.remove("active"));
-    paginationItems[Slidenum - 1].classList.add("active");
+    paginationItems[slideNum - 1].classList.add("active");
   } else {
-    Slidenum = 0;
-    let offset = slideWidth * Slidenum;
+    slideNum = 0;
+    let offset = slideWidth * slideNum;
     slideItems.forEach((i) => {
-      i.setAttribute("style", `transition: ${0}s; left: ${-offset}px`);
+      i.setAttribute("style", `transition: ${0}s; left: ${-offset}px`);// ${}  삭제 가능
     });
-    Slidenum++;
-    offset = slideWidth * Slidenum;
+    slideNum++;
+    offset = slideWidth * slideNum;
     setTimeout(() => {//setTimeout 특정시간 지난 후 코드 실행 함수
       slideItems.forEach((i) => {
         i.setAttribute("style", `transition: ${0.8}s; left: ${-offset}px`);
       });
     }, 0);//딜레이 0
     paginationItems.forEach((i) => i.classList.remove("active"));
-    paginationItems[Slidenum - 1].classList.add("active");
+    paginationItems[slideNum - 1].classList.add("active");
   }
 }
 function prevMove() {
-  Slidenum--;
-  if (Slidenum > 0) {
-    const offset = slideWidth * Slidenum;
+  slideNum--;
+  if (slideNum > 0) {
+    const offset = slideWidth * slideNum;
     slideItems.forEach((i) => {
       i.setAttribute("style", `left: ${-offset}px`);
     });
     paginationItems.forEach((i) => i.classList.remove("active"));
-    paginationItems[Slidenum - 1].classList.add("active");
+    paginationItems[slideNum - 1].classList.add("active");
   } else {
-    Slidenum = maxSlide + 1;
-    let offset = slideWidth * Slidenum;
+    slideNum = maxSlide + 1;
+    let offset = slideWidth * slideNum;
     slideItems.forEach((i) => {
       i.setAttribute("style", `transition: ${0}s; left: ${-offset}px`);
     });
-    Slidenum--;
-    offset = slideWidth * Slidenum;
+    slideNum--;
+    offset = slideWidth * slideNum;
     setTimeout(() => {
       slideItems.forEach((i) => {
        i.setAttribute("style", `transition: ${0.8}s; left: ${-offset}px`);
       });
     }, 0);
     paginationItems.forEach((i) => i.classList.remove("active"));
-    paginationItems[Slidenum - 1].classList.add("active");
+    paginationItems[slideNum - 1].classList.add("active");
   }
 }
 // 페이지네이션 버튼 생성
@@ -102,13 +102,13 @@ const paginationItems = document.querySelectorAll(".slide_pagination > li");
 // 페이지네이션 작동 버튼
 for (let i = 0; i < maxSlide; i++) {
   paginationItems[i].addEventListener("click", () => {//클릭하면 동작
-    Slidenum = i + 1; //i는 클릭한 슬라이드 번호 1은 기본 슬라이드 1번
-    const offset = slideWidth * Slidenum;
+    slideNum = i + 1; //i는 클릭한 슬라이드 번호 1은 기본 슬라이드 1번
+    const offset = slideWidth * slideNum;
     slideItems.forEach((i) => {
       i.setAttribute("style", `left: ${-offset}px`);
     });
     paginationItems.forEach((i) => i.classList.remove("active"));
-    paginationItems[Slidenum - 1].classList.add("active");
+    paginationItems[slideNum - 1].classList.add("active");
   });
 }
 
