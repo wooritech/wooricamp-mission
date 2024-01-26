@@ -210,3 +210,11 @@ li {
   font-size: 21px;
   text-align: center;
 }
+
+/* 두번째 캐러셀  */
+
+.carousel {
+  width: 100%;
+  height: 481px;
+  background-color: antiquewhite;
+}
