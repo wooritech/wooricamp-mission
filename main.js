@@ -37,8 +37,10 @@ slideItems.forEach((i) => {
   i.setAttribute("style", `left: ${-offset}px`);
 });
 
-
 // 앞뒤 범위를 초과하지 않게 만들기
+
+const slide_durattion = .8;
+
 function nextMove() {
   slideNum++; //슬라이드 번호 1 상승
   if (slideNum <= maxSlide) { //불린 데이터 반환
@@ -52,13 +54,14 @@ function nextMove() {
     slideNum = 0;
     let offset = slideWidth * slideNum;
     slideItems.forEach((i) => {
-      i.setAttribute("style", `transition: ${0}s; left: ${-offset}px`);// ${}  삭제 가능
+      // i.setAttribute("style", `transition: ${0}s; left: ${-offset}px`); ${}  삭제 가능
+      i.setAttribute("style", `transition: 0s; left: ${-offset}px`);
     });
     slideNum++;
     offset = slideWidth * slideNum;
     setTimeout(() => {//setTimeout 특정시간 지난 후 코드 실행 함수
       slideItems.forEach((i) => {
-        i.setAttribute("style", `transition: ${0.8}s; left: ${-offset}px`);
+        i.setAttribute("style", `transition: ${slide_durattion}s; left: ${-offset}px`);
       });
     }, 0);//딜레이 0
     paginationItems.forEach((i) => i.classList.remove("active"));
@@ -78,13 +81,13 @@ function prevMove() {
     slideNum = maxSlide + 1;
     let offset = slideWidth * slideNum;
     slideItems.forEach((i) => {
-      i.setAttribute("style", `transition: ${0}s; left: ${-offset}px`);
+      i.setAttribute("style", `transition: 0s; left: ${-offset}px`);
     });
     slideNum--;
     offset = slideWidth * slideNum;
     setTimeout(() => {
       slideItems.forEach((i) => {
-       i.setAttribute("style", `transition: ${0.8}s; left: ${-offset}px`);
+       i.setAttribute("style", `transition: ${slide_durattion}s; left: ${-offset}px`);
       });
     }, 0);
     paginationItems.forEach((i) => i.classList.remove("active"));
