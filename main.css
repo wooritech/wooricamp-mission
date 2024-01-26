@@ -157,81 +157,6 @@ li {
   justify-content: space-between;
 }
 
-.rice {
-  /* margin-right: 40%; */
-}
-
-.rice h2.italic {
-  font-style: italic;
-}
-
-.rice:last-child {
-  margin-top: 20px;
-}
-
-/* RED */
-
-.red_container {
-  width: 100%;
-  height: 335px;
-  background-color: #FA5252;
-  /* 상하좌우 정중앙 정렬 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.red_inner {
-  width: 660px;
-  height: 172px;
-  background-color: #cacaca;
-}
-
-.white {
-  color: #fff;
-  /* margin: 0; */
-  /* display: flex; */
-  /* justify-content: center; */
-}
-
-.white .petFood {
-  width: 100%;
-  height: 45px;
-  background-color: aqua;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  font-size: 33px;
-}
-
-.white .under {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #121212;
-  height: 10px;
-}
-
-/* RICE  */
-
-.rice_container {
-  width: 100%;
-  height: 204px;
-  position: relative;
-  background-color: orange;
-}
-
-.rice_container .rice_inner {
-  width: 50%;
-  height: 50%;
-  position: absolute;
-  left: 25%;
-  top: 25%;
-  background-color: aqua;
-  display: flex;
-  justify-content: space-between;
-}
-
 .rice h2.italic {
   font-style: italic;
 }
@@ -262,7 +187,6 @@ li {
 .petFood {
   width: 100%;
   height: 45px;
-  background-color: aqua;
   font-size: 33px;
   font-weight: 700;
 }
@@ -284,7 +208,6 @@ li {
   position: absolute;
   top: 65px;
   left: 50px;
-  background-color: aqua;
   font-size: 21px;
   text-align: center;
 }
