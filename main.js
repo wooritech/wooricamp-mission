@@ -1,7 +1,7 @@
 // new Swiper('.carousel_main .carousel_wrapper', {
 //     loop: true,
 //     autoplay: {
-//         delay: 3000x
+//         delay: 3000
 //     }
 // }); swiper.js 라이브러리 없으면 작동 안함
 
