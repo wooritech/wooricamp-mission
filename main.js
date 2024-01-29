@@ -129,3 +129,4 @@ let loopInterval = setInterval(() => {
 
 // 두번째 캐러셀
 
+const slideT = document.querySelector()
