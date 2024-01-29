@@ -209,3 +209,46 @@ li {
   font-size: 21px;
   text-align: center;
 }
+
+/* 두번째 캐러셀 */
+
+.carousel {
+  width: 100%;
+  height: 481px;
+  background-color: green;
+  /* 주축정렬 */
+  position: relative;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.carousel .container {
+  width: 900px;
+  height: 321px;
+  background-color: brown;
+  border-radius: 50px;
+  /* display: flex; */
+  overflow: hidden;
+  position: relative;
+  box-shadow: 5px 5px 50px black;
+}
+
+.carousel .container .inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.carousel .container .inner .imgBox {
+  transition: left 1.2s;
+}
+
+.carousel .container .inner .imgBox img {
+  /* display: block; */
+  /* width: 100%; */
+  height: 100%;
+}
