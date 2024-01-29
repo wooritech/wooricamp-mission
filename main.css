@@ -218,37 +218,71 @@ li {
   background-color: green;
   /* 주축정렬 */
   position: relative;
+  /* 정중앙 정렬 */
   display: flex;
   justify-content: center; 
   align-items: center;
 }
 
-.carousel .container {
+.carousel .slider {
   width: 900px;
   height: 321px;
-  background-color: brown;
   border-radius: 50px;
-  /* display: flex; */
   overflow: hidden;
-  position: relative;
-  box-shadow: 5px 5px 50px black;
+  box-shadow: 5px 5px 20px black; /*그림자 넣기 md 참조*/
 }
 
-.carousel .container .inner {
-  width: 100%;
+.carousel .slider .slides { /*슬라이더 전체 크기*/
+  width: 500%;
   height: 100%;
   display: flex;
+}
+
+.carousel .slider .slides input {
+  display: none;
+}
+
+.carousel .slider .slides .slide {
+  width: 100%; /*슬라이더 하나가 가지는 크기*/
+  transition: 1.2s;/*버튼 클릭시 전환시간*/
+}
+
+.carousel .slider .slides .slide img {
+  width: 900px;
+  height: 321px;
+}
+
+.navigation-manual {
   position: absolute;
-  left: 0;
-  top: 0;
+  width: 900px;
+  margin-top: 280px;
+  display: flex;
+  justify-content: center;
 }
 
-.carousel .container .inner .imgBox {
-  transition: left 1.2s;
+.navigation-manual .manual-btn {
+  border: 10px solid #000;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 40px;
 }
 
-.carousel .container .inner .imgBox img {
-  /* display: block; */
-  /* width: 100%; */
-  height: 100%;
+#radio1:checked ~ .first {
+  margin-left: 0;
+}
+
+#radio2:checked ~ .first {
+  margin-left: -20%;
+}
+
+#radio3:checked ~ .first {
+  margin-left: -40%;
+}
+
+#radio4:checked ~ .first {
+  margin-left: -60%;
+}
+
+#radio5:checked ~ .first {
+  margin-left: -80%;
 }
