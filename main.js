@@ -123,3 +123,9 @@ window.addEventListener("resize", () => {
 let loopInterval = setInterval(() => {
   nextMove();
 }, 3000);
+
+
+
+
+// 두번째 캐러셀
+
