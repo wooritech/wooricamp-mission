@@ -215,7 +215,6 @@ li {
 .carousel {
   width: 100%;
   height: 481px;
-  background-color: green;
   /* 주축정렬 */
   position: relative;
   /* 정중앙 정렬 */
@@ -229,10 +228,12 @@ li {
   height: 321px;
   border-radius: 50px;
   overflow: hidden;
-  box-shadow: 5px 5px 20px black; /*그림자 넣기 md 참조*/
+  /*그림자 넣기 md 참조*/
+  box-shadow: 5px 5px 20px black;
 }
 
-.carousel .slider .slides { /*슬라이더 전체 크기*/
+/*슬라이더 전체 크기*/
+.carousel .slider .slides {
   width: 500%;
   height: 100%;
   display: flex;
@@ -243,8 +244,10 @@ li {
 }
 
 .carousel .slider .slides .slide {
-  width: 100%; /*슬라이더 하나가 가지는 크기*/
-  transition: 1.2s;/*버튼 클릭시 전환시간*/
+  /*슬라이더 하나가 가지는 크기*/
+  width: 100%;
+  /*버튼 클릭시 전환시간*/
+  transition: 1.2s;
 }
 
 .carousel .slider .slides .slide img {

@@ -127,12 +127,15 @@ let loopInterval = setInterval(() => {
 // 두번째 캐러셀
 
 let counter = 1;
-slideItems[slideItems.length - 1].after(startElem);
+// slideItems[slideItems.length - 1].after(startElem);
 
 setInterval(function(){
   document.getElementById('radio' + counter).checked = true;
   counter++;
-  if(counter > 5){ //counter의 크기가 이미지의 개수를 초과할 경우
-    counter = 1; // counter를 1로 초기화
+  //counter의 크기가 이미지의 개수를 초과할 경우
+  if(counter > 5){
+    // counter를 1로 초기화
+    counter = 1;
   }
-}, 6000);//자동 슬라이드 딜레이
+  //자동 슬라이드 딜레이
+}, 3000);
