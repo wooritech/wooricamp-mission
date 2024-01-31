@@ -5,13 +5,16 @@
 //     }
 // }); swiper.js 라이브러리 없으면 작동 안함
 
-const slide = document.querySelector('.carousel_wrapper');
-let slideWidth = slide.clientWidth;//슬라이드 크기 구하기 //clientWidth 요소의 가로값 가져오기
-let slideItems = document.querySelectorAll(".carousel_slide");// 값 변경을 위한 슬라이드 전체 선택
-const maxSlide = slideItems.length;//최대값이 보유한 슬라이드 수를 넘기지 않도록
-const pagination = document.querySelector(".slide_pagination");
-let slideNum = 1;//버튼 클릭시 현재 슬라이드 위치 나타내기
-
+const slide = document.querySelector('.carousel-wrapper');
+//슬라이드 크기 구하기 //clientWidth 요소의 가로값 가져오기
+let slideWidth = slide.clientWidth;
+// 값 변경을 위한 슬라이드 전체 선택
+let slideItems = document.querySelectorAll(".carousel-slide");
+//최대값이 보유한 슬라이드 수를 넘기지 않도록
+const maxSlide = slideItems.length;
+const pagination = document.querySelector(".slide-pagination");
+//버튼 클릭시 현재 슬라이드 위치 나타내기
+let slideNum = 1;
 
 // 무한 슬라이드
 const startSlide = slideItems[0];
@@ -30,7 +33,7 @@ slideItems[0].before(endElem);
 slideItems[slideItems.length - 1].after(startElem);
 
 // 슬라이드 전체를 선택해 값을 변경해주기 위해 슬라이드 전체 선택하기
-slideItems = document.querySelectorAll(".carousel_slide");
+slideItems = document.querySelectorAll(".carousel-slide");
 
 let offset = slideWidth + slideNum;
 slideItems.forEach((i) => {
@@ -42,12 +45,17 @@ slideItems.forEach((i) => {
 const SLIDE_DURATTION = .8;
 
 function nextMove() {
-  slideNum++; //슬라이드 번호 1 상승
-  if (slideNum <= maxSlide) { //불린 데이터 반환
-    const offset = slideWidth * slideNum; //슬라이드 크기 * 슬라이드 번호
-    slideItems.forEach((i) => {//슬라이드 전체 크기많큼 반복 순회 
+  //슬라이드 번호 1 상승
+  slideNum++;
+  //불린 데이터 반환
+  if (slideNum <= maxSlide) {
+     //슬라이드 크기 * 슬라이드 번호
+    const offset = slideWidth * slideNum;
+    //슬라이드 전체 크기많큼 반복 순회 
+    slideItems.forEach((i) => {
+      //setAttribute('속성이름','속성값') 속성이름에 속성값 할당
       i.setAttribute("style", `left: ${-offset}px`);
-    });//setAttribute('속성이름','속성값') 속성이름에 속성값 할당
+    });
     paginationItems.forEach((i) => i.classList.remove("active"));
     paginationItems[slideNum - 1].classList.add("active");
   } else {
@@ -59,11 +67,13 @@ function nextMove() {
     });
     slideNum++;
     offset = slideWidth * slideNum;
-    setTimeout(() => {//setTimeout 특정시간 지난 후 코드 실행 함수
+    //setTimeout 특정시간 지난 후 코드 실행 함수
+    setTimeout(() => {
       slideItems.forEach((i) => {
         i.setAttribute("style", `transition: ${SLIDE_DURATTION}s; left: ${-offset}px`);
       });
-    }, 0);//딜레이 0
+      //딜레이 0
+    }, 0);
     paginationItems.forEach((i) => i.classList.remove("active"));
     paginationItems[slideNum - 1].classList.add("active");
   }
@@ -100,12 +110,14 @@ for (let i = 0; i < maxSlide; i++) {
   else pagination.innerHTML += `<li>•</li>`;
 }
 
-const paginationItems = document.querySelectorAll(".slide_pagination > li");
+const paginationItems = document.querySelectorAll(".slide-pagination > li");
 
 // 페이지네이션 작동 버튼
 for (let i = 0; i < maxSlide; i++) {
-  paginationItems[i].addEventListener("click", () => {//클릭하면 동작
-    slideNum = i + 1; //i는 클릭한 슬라이드 번호 1은 기본 슬라이드 1번
+  //클릭하면 동작
+  paginationItems[i].addEventListener("click", () => {
+    //i는 클릭한 슬라이드 번호 1은 기본 슬라이드 1번
+    slideNum = i + 1; 
     const offset = slideWidth * slideNum;
     slideItems.forEach((i) => {
       i.setAttribute("style", `left: ${-offset}px`);
