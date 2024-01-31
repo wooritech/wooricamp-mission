@@ -5,14 +5,14 @@
 //     }
 // }); swiper.js 라이브러리 없으면 작동 안함
 
-const slide = document.querySelector('.carousel_wrapper');
+const slide = document.querySelector('.carousel-wrapper');
 //슬라이드 크기 구하기 //clientWidth 요소의 가로값 가져오기
 let slideWidth = slide.clientWidth;
 // 값 변경을 위한 슬라이드 전체 선택
-let slideItems = document.querySelectorAll(".carousel_slide");
+let slideItems = document.querySelectorAll(".carousel-slide");
 //최대값이 보유한 슬라이드 수를 넘기지 않도록
 const maxSlide = slideItems.length;
-const pagination = document.querySelector(".slide_pagination");
+const pagination = document.querySelector(".slide-pagination");
 //버튼 클릭시 현재 슬라이드 위치 나타내기
 let slideNum = 1;
 
@@ -33,7 +33,7 @@ slideItems[0].before(endElem);
 slideItems[slideItems.length - 1].after(startElem);
 
 // 슬라이드 전체를 선택해 값을 변경해주기 위해 슬라이드 전체 선택하기
-slideItems = document.querySelectorAll(".carousel_slide");
+slideItems = document.querySelectorAll(".carousel-slide");
 
 let offset = slideWidth + slideNum;
 slideItems.forEach((i) => {
@@ -110,11 +110,11 @@ for (let i = 0; i < maxSlide; i++) {
   else pagination.innerHTML += `<li>•</li>`;
 }
 
-const paginationItems = document.querySelectorAll(".slide_pagination > li");
+const paginationItems = document.querySelectorAll(".slide-pagination > li");
 
 // 페이지네이션 작동 버튼
 for (let i = 0; i < maxSlide; i++) {
-                                      //클릭하면 동작
+  //클릭하면 동작
   paginationItems[i].addEventListener("click", () => {
     //i는 클릭한 슬라이드 번호 1은 기본 슬라이드 1번
     slideNum = i + 1; 
