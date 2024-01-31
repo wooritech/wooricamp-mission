@@ -294,9 +294,12 @@ li {
 }
 
 .navigation-manual .manual-btn {
-  border: 10px solid #000;
+  border: 10px solid #737373;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.navigation-manual .manual-btn:not(:last-child) {
   margin-right: 40px;
 }
 

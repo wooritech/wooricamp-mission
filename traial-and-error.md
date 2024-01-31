@@ -87,3 +87,79 @@ box-shadow: 숫자1 숫자2 숫자3 숫자4 색상 inset;
 ## 2024-01-30-09
 
 캐러셀을 구현하기는 했는데 이게 맞나 모르겠네... 
+
+## 2024-01-31-10
+
+첫번째 페이지 자동 슬라이드 시간 2배 문제 해결함.  
+
+페이지네이션으로 이미지 이동후 6초가 되기전에 이동하는 문제 해결하기위한 코딩
+
+반복을 종료하고 재호출 = 실패
+  
+```js
+let counter = 2;
+
+let interval = setInterval(function(){
+  document.getElementById('radio' + counter).checked = true;
+  counter++;
+  //counter의 크기가 이미지의 개수를 초과할 경우
+  if(counter > 5){
+    // counter를 1로 초기화
+    counter = 1;
+  }
+  //자동 슬라이드 딜레이
+}, 6000);
+
+function stop() {
+  clearInterval(interval);
+};
+
+interval = setInterval(function(){
+  document.getElementById('radio' + counter).checked = true;
+  counter++;
+  //counter의 크기가 이미지의 개수를 초과할 경우
+  if(counter > 5){
+    // counter를 1로 초기화
+    counter = 1;
+  }
+  //자동 슬라이드 딜레이
+}, 6000);
+```
+```js
+let counter = 2;
+
+function myFn () {
+  document.getElementById('radio' + counter).checked = true;
+  counter++;
+  if(counter > 5){
+    counter = 1;
+  }
+}
+
+let interval = setInterval(myFn, 6000);
+
+clearInterval(interval);
+interval = setInterval(myFn, 6000);
+```
+
+onclick을 사용한 딜레이 초기화 = 실패
+
+```js
+let counter = 2;
+const delay = 6000;
+const carouselBtn = document.querySelectorAll('.manual-btn')
+carouselBtn.onclick = () => {
+  delay = 6000;
+}
+
+setInterval(function(){
+  document.getElementById('radio' + counter).checked = true;
+  counter++;
+  //counter의 크기가 이미지의 개수를 초과할 경우
+  if(counter > 5){
+    // counter를 1로 초기화
+    counter = 1;
+  }
+  //자동 슬라이드 딜레이
+}, delay);
+```

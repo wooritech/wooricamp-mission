@@ -138,8 +138,9 @@ let loopInterval = setInterval(() => {
 
 // 두번째 캐러셀
 
-let counter = 1;
-// slideItems[slideItems.length - 1].after(startElem);
+//처음 시작할때 첫번째 페이지가 자동 슬라이드 되는 시간이 2배인 문제를 해결하기 위해서 counter값을 1에로 2로 변경했다.
+let counter = 2;
+const delay = 6000;
 
 setInterval(function(){
   document.getElementById('radio' + counter).checked = true;
@@ -150,4 +151,5 @@ setInterval(function(){
     counter = 1;
   }
   //자동 슬라이드 딜레이
-}, 3000);
+}, delay);
+
