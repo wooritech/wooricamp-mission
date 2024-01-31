@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -90,7 +95,7 @@ ul {
 
 
 /* 메인 캐러셀 */
-.carousel_main {
+.carousel-main {
   width: 100%;
   height: 100%;
   position: relative;
@@ -99,20 +104,21 @@ ul {
   user-select: none;
 }
 
-.carousel_wrapper {
+.carousel-wrapper {
   position: relative;
   width: 100%;
   height: 100%;
   display: flex;
 }
 
-.carousel_slide {
+.carousel-slide {
   flex: 0 0 100%;
   position: relative;
-  transition: left .8s; /* js이동 방향을 지정할 경우에는 transform */
+  /* js이동 방향을 지정할 경우에는 transform */
+  transition: left .8s;
 }
 
-.carousel_slide img {
+.carousel-slide img {
   display: block;
   width: 100%;
   height: 100%;
@@ -126,13 +132,111 @@ li {
   padding: 0;
   margin: 0;
 }
-.slide_pagination {
+.slide-pagination {
   display: flex;
   position: absolute;
   bottom: 0;
   left: 50%;
+  transform: translateX(-50%);
 }
-.slide_pagination > li {
+.slide-pagination > li {
   cursor: pointer;
   font-size: 50px;
+}
+
+/* RICE  */
+
+.rice-container {
+  width: 100%;
+  height: 204px;
+  position: relative;
+}
+
+.rice-container .rice-inner {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  left: 25%;
+  top: 25%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rice .a, .c {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.rice .b, .d {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.rice .c {
+  display: flex;
+  justify-content: center;
+}
+
+.rice .italic {
+  font-size: 32px;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.rice:last-child {
+  margin-top: 20px;
+}
+
+/* RED */
+
+.red-container {
+  width: 100%;
+  height: 335px;
+  background-color: #FA5252;
+  /* 상하좌우 정중앙 정렬 */
+  display: flex;
+   /* 주축(x) 정렬*/
+  justify-content: center;
+  /* 교차축(y) 정렬 */
+  align-items: center;
+}
+
+.red-inner {
+  width: 660px;
+  height: 172px;
+  color: #fff;
+}
+
+.petFood {
+  /* width: 100%; */
+  display: flex;
+  justify-content: center;
+  height: 45px;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.under {
+  position: relative;
+}
+
+.under > p {
+  position: absolute;
+  font-size: 32px;
+  font-weight: 700;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.under > div {
+  height: 62px;
+  position: absolute;
+  top: 65px;
+  left: 64.5px;
+  font-size: 20px;
+  font-weight: 400;
+  justify-content: center;
+  text-align: center;
+  line-height: 31px;
 }
