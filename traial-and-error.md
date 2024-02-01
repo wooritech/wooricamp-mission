@@ -66,3 +66,100 @@ FittedBox 사용해보자! 컨테이너 사이즈에 맞춰서 글자 크기를 
 캐러셀 리뷰받고 적용완료했다...  
 병합하는데 오류가 쏟아진다.   
 매직넘버 = 선언없이 바로쓰는 것들 => 선언해두면 나중에 한번에 바꿀수있다.
+
+## 2024-01-29-08
+
+### 상자에 그림자 넣기!!
+
+box-shadow: 숫자1 숫자2 숫자3 숫자4 색상 inset;  
+- 숫자1, 2, 색상만 작성해도 사용 가능
+- 숫자1 => x축 그림자 (양수는 오른쪽 음수는 왼쪽)
+- 숫자2 => y축 그림자 (양수는 아래쪽 음수는 위쪽)
+- 숫자3 => 그림자 블러 처리
+- 숫자4 => 그림자 크기
+- 색상  => 색상
+- inset=> 그림자가 내부로 생성 
+
+### useState
+
+![Alt text](./readme-in-img/image.png)
+
+## 2024-01-30-09
+
+캐러셀을 구현하기는 했는데 이게 맞나 모르겠네... 
+
+## 2024-01-31-10
+
+첫번째 페이지 자동 슬라이드 시간 2배 문제 해결함.  
+
+페이지네이션으로 이미지 이동후 6초가 되기전에 이동하는 문제 해결하기위한 코딩
+
+반복을 종료하고 재호출 = 실패
+  
+```js
+let counter = 2;
+
+let interval = setInterval(function(){
+  document.getElementById('radio' + counter).checked = true;
+  counter++;
+  //counter의 크기가 이미지의 개수를 초과할 경우
+  if(counter > 5){
+    // counter를 1로 초기화
+    counter = 1;
+  }
+  //자동 슬라이드 딜레이
+}, 6000);
+
+function stop() {
+  clearInterval(interval);
+};
+
+interval = setInterval(function(){
+  document.getElementById('radio' + counter).checked = true;
+  counter++;
+  //counter의 크기가 이미지의 개수를 초과할 경우
+  if(counter > 5){
+    // counter를 1로 초기화
+    counter = 1;
+  }
+  //자동 슬라이드 딜레이
+}, 6000);
+```
+```js
+let counter = 2;
+
+function myFn () {
+  document.getElementById('radio' + counter).checked = true;
+  counter++;
+  if(counter > 5){
+    counter = 1;
+  }
+}
+
+let interval = setInterval(myFn, 6000);
+
+clearInterval(interval);
+interval = setInterval(myFn, 6000);
+```
+
+onclick을 사용한 딜레이 초기화 = 실패
+
+```js
+let counter = 2;
+const delay = 6000;
+const carouselBtn = document.querySelectorAll('.manual-btn')
+carouselBtn.onclick = () => {
+  delay = 6000;
+}
+
+setInterval(function(){
+  document.getElementById('radio' + counter).checked = true;
+  counter++;
+  //counter의 크기가 이미지의 개수를 초과할 경우
+  if(counter > 5){
+    // counter를 1로 초기화
+    counter = 1;
+  }
+  //자동 슬라이드 딜레이
+}, delay);
+```

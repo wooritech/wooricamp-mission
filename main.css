@@ -238,5 +238,92 @@ li {
   font-weight: 400;
   justify-content: center;
   text-align: center;
-  line-height: 31px;
+}
+
+/* 두번째 캐러셀 */
+
+.carousel {
+  width: 100%;
+  height: 481px;
+  /* 주축정렬 */
+  position: relative;
+  /* .slider 정중앙 정렬 */
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.carousel .slider {
+  width: 880px;
+  height: 301px;
+  border-radius: 16px;
+  overflow: hidden;
+  /*그림자 넣기 md 참조*/
+  box-shadow: 5px 5px 20px black;
+  position: relative;
+  /* justify-content: center;제외 = 추가시 슬라이드 이미지 3번부터 시작함 */
+  align-items: center;
+  display: flex;
+}
+
+/*슬라이더 전체 크기*/
+.carousel .slider .slides {
+  width: 500%;
+  height: 100%;
+  display: flex;
+}
+
+.carousel .slider .slides input {
+  display: none;
+}
+
+.carousel .slider .slides .slide {
+  /*슬라이더 하나가 가지는 크기*/
+  width: 100%;
+  /*버튼 클릭시 전환시간*/
+  transition: 1.2s;
+}
+
+.carousel .slider .slides .slide img {
+  width: 880px;
+  height: 301px;
+}
+
+.navigation-manual {
+  position: absolute;
+  margin-top: 280px;
+  display: flex;
+  /* 버튼 중앙 정렬 */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navigation-manual .manual-btn {
+  border: 8px solid #737373;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.navigation-manual .manual-btn:not(:last-child) {
+  margin-right: 24px;
+}
+
+#radio1:checked ~ .first {
+  margin-left: 0;
+}
+
+#radio2:checked ~ .first {
+  margin-left: -20%;
+}
+
+#radio3:checked ~ .first {
+  margin-left: -40%;
+}
+
+#radio4:checked ~ .first {
+  margin-left: -60%;
+}
+
+#radio5:checked ~ .first {
+  margin-left: -80%;
 }
