@@ -247,18 +247,23 @@ li {
   height: 481px;
   /* 주축정렬 */
   position: relative;
-  /* 정중앙 정렬 */
+  /* .slider 정중앙 정렬 */
   display: flex;
   justify-content: center; 
   align-items: center;
 }
 
 .carousel .slider {
-  width: 900px;
-  height: 321px;
-  /* border-radius: 50px; */
+  width: 880px;
+  height: 301px;
+  border-radius: 16px;
   overflow: hidden;
   /*그림자 넣기 md 참조*/
+  box-shadow: 5px 5px 20px black;
+  position: relative;
+  /* justify-content: center;제외 = 추가시 슬라이드 이미지 3번부터 시작함 */
+  align-items: center;
+  display: flex;
 }
 
 /*슬라이더 전체 크기*/
@@ -277,28 +282,24 @@ li {
   width: 100%;
   /*버튼 클릭시 전환시간*/
   transition: 1.2s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .carousel .slider .slides .slide img {
   width: 880px;
   height: 301px;
-  border-radius: 16px;
-  box-shadow: 5px 5px 20px black;
 }
 
 .navigation-manual {
   position: absolute;
-  width: 900px;
   margin-top: 280px;
   display: flex;
-  justify-content: center;
+  /* 버튼 중앙 정렬 */
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .navigation-manual .manual-btn {
-  border: 8px solid #737373;
+  border: 8px solid #000;
   border-radius: 10px;
   cursor: pointer;
 }
