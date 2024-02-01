@@ -259,7 +259,6 @@ li {
   /* border-radius: 50px; */
   overflow: hidden;
   /*그림자 넣기 md 참조*/
-  box-shadow: 5px 5px 20px black;
 }
 
 /*슬라이더 전체 크기*/
@@ -287,6 +286,7 @@ li {
   width: 880px;
   height: 301px;
   border-radius: 16px;
+  box-shadow: 5px 5px 20px black;
 }
 
 .navigation-manual {
