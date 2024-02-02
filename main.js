@@ -139,17 +139,28 @@ let loopInterval = setInterval(() => {
 // 두번째 캐러셀
 
 //처음 시작할때 첫번째 페이지가 자동 슬라이드 되는 시간이 2배인 문제를 해결하기 위해서 counter값을 1에로 2로 변경했다.
-// let counter = 2;
-// const delay = 6000;
+let counter = 2;
+const radioButton = document.querySelectorAll('input[name="radio-btn"]');
 
-// setInterval(function(){
-//   document.getElementById('radio' + counter).checked = true;
-//   counter++;
-//   //counter의 크기가 이미지의 개수를 초과할 경우
-//   if(counter > 5){
-//     // counter를 1로 초기화
-//     counter = 1;
-//   }
-//   //자동 슬라이드 딜레이
-// }, delay);
+let moveslide = setInterval(function(){
+  document.getElementById('radio' + counter).checked = true;
+  counter++;
+  // counter의 크기가 이미지의 개수를 초과할 경우
+  if(counter > 5){
+    // counter를 1로 초기화
+    counter = 1;
+  }
+  //자동 슬라이드 딜레이
+}, 6000);
 
+
+if(radioButton.checked) {
+  clearInterval(moveslide);
+  moveslide = setInterval(() => {
+    document.getElementById('radio' + counter).checked = true;
+    counter++;
+    if(counter > 5){
+      counter = 1;
+    }
+  }, 6000);
+}
