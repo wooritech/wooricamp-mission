@@ -138,29 +138,45 @@ let loopInterval = setInterval(() => {
 
 // 두번째 캐러셀
 
-//처음 시작할때 첫번째 페이지가 자동 슬라이드 되는 시간이 2배인 문제를 해결하기 위해서 counter값을 1에로 2로 변경했다.
-let counter = 2;
-const radioButton = document.querySelectorAll('input[name="radio-btn"]');
+let list = document.querySelector('.slider .slides');
+let items = document.querySelectorAll('.slider .slides .slide');
+let dots = document.querySelectorAll('.slider .navigation-manual li');
 
-let moveslide = setInterval(function(){
-  document.getElementById('radio' + counter).checked = true;
-  counter++;
-  // counter의 크기가 이미지의 개수를 초과할 경우
-  if(counter > 5){
-    // counter를 1로 초기화
-    counter = 1;
+let active = 0;
+let lengthItems = items.length - 1;
+
+let refreshSlider = setInterval(() => {
+  if(active + 1 > lengthItems) {
+    active = 0;
+  } else {
+    active = active + 1;
   }
-  //자동 슬라이드 딜레이
+  reloadSlider();
 }, 6000);
 
-
-if(radioButton.checked) {
-  clearInterval(moveslide);
-  moveslide = setInterval(() => {
-    document.getElementById('radio' + counter).checked = true;
-    counter++;
-    if(counter > 5){
-      counter = 1;
+function reloadSlider() {
+  //이미지 하나의 크기 * 인덱스 번호
+  let checkLeft = items[active].offsetLeft;
+  // 자동 슬라이드되는 크기
+  list.style.left = '-' + checkLeft + 'px';
+  
+  let lastActiveDot = document.querySelector('.slider .navigation-manual li.active');
+  lastActiveDot.classList.remove('active');
+  dots[active].classList.add('active');
+  clearInterval(refreshSlider);
+  refreshSlider = setInterval(() => {
+    if(active + 1 > lengthItems) {
+      active = 0;
+    } else {
+      active = active + 1;
     }
+    reloadSlider();
   }, 6000);
 }
+
+dots.forEach((li, key) => {
+  li.addEventListener('click', function() {
+    active = key;
+    reloadSlider();
+  })
+})
