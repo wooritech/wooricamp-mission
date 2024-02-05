@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="./main.css">
-  <script defer src="./main.js"></script>
+  <script defer src="./main.js"></script> 
 </head>
-<body style="margin: 0;">
+<body>
   <!-- HEADER -->
   <header class="head">
     <div class="inner">
@@ -55,52 +55,54 @@
     </div>
   </header>
 
-  <div class="carousel_main">
-    <div class="carousel_wrapper">
-      <div class="carousel_slide">
+  <div class="carousel-main">
+    <div class="carousel-wrapper">
+      <div class="carousel-slide">
         <img src="./public/banner01.png" alt="banner01">
       </div>
-      <div class="carousel_slide">
+      <div class="carousel-slide">
         <img src="./public/banner02.png" alt="banner02">
       </div>
-      <div class="carousel_slide">
+      <div class="carousel-slide">
         <img src="./public/banner03.png" alt="banner03">
       </div>
-      <div class="carousel_slide">
+      <div class="carousel-slide">
         <img src="./public/banner04.png" alt="banner04">
       </div>
-      <ul class="slide_pagination"></ul>
+      <ul class="slide-pagination"></ul>
     </div>
-  </div>
 
-  <div class="rice_container">
-    <div class="rice_inner">
-      <div class="rice">
-        <h4>가장 맛있는</h4>
-        <h2>시간 30일</h2>
-      </div>
-      <div class="rice">
-        <h4>The</h4>
-        <h2 class="italic">Unreal</h2>
-      </div>
-      <div class="rice">
-        <h2>밥이 보약</h2>
-      </div>
-    </div>
-  </div>
+    <!--밥이 보약-->
 
-  <div class="red_container">
-    <div class="red_inner">
-      <div class="petFood">
-        이게 바로 우리가 우리펫푸드를 시작한 이유입니다.
-      </div>
-      <div class="under">
-        <p>-</p>
-        <div class="petParent">
-          우리 펫페어런츠들은 사랑하는 네발의 아이들에게도<br>
-          자연에서 오는 영양이 건강과 행복에 꼭 필요하다는 것을 알았습니다.
+    <div class="rice-container">
+      <div class="rice-inner">
+        <div class="rice">
+          <p class="a">가장 맛있는</p>
+          <p class="b">시간 30일</p>
         </div>
-      </div>      
+        <div class="rice">
+          <p class="c">The</p>
+          <p class="italic">Unreal</p>
+        </div>
+        <div class="rice">
+          <p class="d">밥이 보약</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="red-container">
+      <div class="red-inner">
+        <div class="petFood">
+          이게 바로 우리가 우리펫푸드를 시작한 이유입니다
+        </div>
+        <div class="under">
+          <p>-</p>
+          <div class="petParent">
+            우리 펫페어런츠들은 사랑하는 네발의 아이들에게도<br>
+            자연에서 오는 영양이 건강과 행복에 꼭 필요하다는 것을 알았습니다.
+          </div>
+        </div> 
+      </div>
     </div>
   </div>
   
@@ -108,39 +110,31 @@
   <div class="carousel">
     <div class="slider">
       <div class="slides">
-        <input type="radio" name="radio-btn" id="radio1">
-        <input type="radio" name="radio-btn" id="radio2">
-        <input type="radio" name="radio-btn" id="radio3">
-        <input type="radio" name="radio-btn" id="radio4">
-        <input type="radio" name="radio-btn" id="radio5">
   
-  
-        <div class="slide first">
+        <div class="slide">
           <img src="./public/banner2-01.jpeg" alt="캐러셀2-1">
         </div>
-        <div class="slide first">
+        <div class="slide">
           <img src="./public/banner2-02.jpeg" alt="캐러셀2-2">
         </div>
-        <div class="slide first">
+        <div class="slide">
           <img src="./public/banner2-03.jpeg" alt="캐러셀2-3">
         </div>
-        <div class="slide first">
+        <div class="slide">
           <img src="./public/banner2-04.jpeg" alt="캐러셀2-4">
         </div>
-        <div class="slide first">
+        <div class="slide">
           <img src="./public/banner2-05.jpeg" alt="캐러셀2-5">
         </div>
-  
-        <div class="navigation-manual">
-          <label for="radio1" class="manual-btn"></label>
-          <label for="radio2" class="manual-btn"></label>
-          <label for="radio3" class="manual-btn"></label>
-          <label for="radio4" class="manual-btn"></label>
-          <label for="radio5" class="manual-btn"></label>
-        </div>
       </div>
+      <ul class="navigation-manual">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
     </div>
-
   </div>
 
   <!-- FOOTER -->
