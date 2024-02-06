@@ -1,0 +1,234 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+}
+
+.head {
+  width: 100%;
+  height: 143px;
+  position: relative;
+  top: 0;
+  z-index: 9;
+}
+
+.head .inner {
+  width: 70%;
+  height: 127px;
+  position: absolute;
+  top: 16px;
+  left: 15%;
+}
+
+.head .inner .header-line-one {
+  width: 90%;
+  height: 67px;
+  position: absolute;
+  box-sizing: border-box;
+  left: 5%;
+}
+
+.head .inner .header-line-one .logo {
+  position: absolute;
+  left: 0;
+}
+
+.head .inner .header-line-one .menu .sign {
+  width: 120px;
+  height: 25px;
+  position: absolute;
+  top: 20px;
+  right: 0px;
+  display: flex;
+  list-style: none;
+}
+
+.head .inner .header-line-one .menu .sign li a {
+  padding-left: 10px;
+}
+
+.head .inner .header-line-two {
+  width: 90%;
+  height: 60px;
+  position: absolute;
+  left: 5%;
+  top: 67px;
+}
+
+.head .inner .header-line-two .pets .pet {
+  width: auto;
+  height: 25px;
+  position: absolute;
+  left: 0px;
+  top: 20px;
+  list-style: none;
+  display: flex;
+}
+
+.head .inner .header-line-two .pets .pet li a {
+  padding-right: 10px;
+}
+
+.head .inner .header-line-two .my .my-container {
+  width: auto;
+  height: 25px;
+  position: absolute;
+  right: 0;
+  top: 20px;
+  display: flex;
+  list-style: none;
+}
+
+.head .inner .header-line-two .my .my-container li a {
+  padding-left: 10px;
+}
+
+/* 상품 목록 */
+
+.food-menu {
+  width: 100%;
+  height: 840px;
+  border-top: 1px solid #e5e5e5;
+  position: relative;
+}
+
+.food-menu>p {
+  position: absolute;
+  font-size: 32px;
+  font-weight: 700;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20px;
+}
+
+.food-menu .container {
+  width: 900px;
+  height: 700px;
+  /* background-color: aqua; */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.food-menu .container .inner {
+  width: 25%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.food-menu .container .inner .item {
+  width: 201px;
+  height: 310px;
+  border: 1px solid #e5e5e5;
+  box-sizing: border-box;
+}
+
+.food-menu .container .inner .item .img {
+  width: 199px;
+  height: 197px;
+}
+
+.food-menu .container .inner .item .img img {
+  width: 100%;
+  height: 100%;
+}
+
+.food-menu .container .inner .item .text {
+  width: 199px;
+  height: 111px;
+  position: relative;
+
+}
+
+.food-menu .container .inner .item .text > p:first-child {
+  width: 175px;
+  height: 44px;
+  font-size: 14px;
+  font-weight: 600;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 10px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px 0 0;
+  box-sizing: border-box;
+}
+.food-menu .container .inner .item .text > p:last-child {
+  width: 175px;
+  height: 51px;
+  font-size: 14px;
+  font-weight: 400;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 54px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+/* FOOTER */
+.footer {
+  width: 100%;
+  height: 338px;
+  background-color: #f5f5f5;
+  position: relative;
+  padding: 0 200px;
+  box-sizing: border-box;
+}
+
+.footer .container {
+  height: 338px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  padding: 60px 0;
+  box-sizing: border-box;
+}
+
+.footer .container:not(:last-child) {
+  gap: 64px;
+}
+
+.footer .container .footer-text {
+  height: 218px;
+  color: #a3a3a3;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 31px;
+  padding: 0 100px 0 0;
+  box-sizing: border-box;
+}
+
+.footer .container .footer-text .head-text {
+  color: #000;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 30px;
+  padding: 16px 0;
+  box-sizing: border-box;
+}
+
+.footer .container .footer-text .call-number {
+  color: #e03131;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 35px;
+}
