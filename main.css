@@ -271,6 +271,9 @@ li {
   width: 500%;
   height: 100%;
   display: flex;
+  position: relative;
+  /*버튼 클릭시 전환시간*/
+  transition: 1.2s;
 }
 
 .carousel .slider .slides input {
@@ -280,8 +283,9 @@ li {
 .carousel .slider .slides .slide {
   /*슬라이더 하나가 가지는 크기*/
   width: 100%;
-  /*버튼 클릭시 전환시간*/
-  transition: 1.2s;
+  /* 버튼 클릭시 전환시간 js 완성후 상단으로 이동*/
+  /* 자옫 슬라이드가 실행되는 위치가 변경됨 */
+  /* transition: 1.2s; */
 }
 
 .carousel .slider .slides .slide img {
@@ -291,39 +295,19 @@ li {
 
 .navigation-manual {
   position: absolute;
-  margin-top: 280px;
+  margin-top: 260px;
   display: flex;
   /* 버튼 중앙 정렬 */
   left: 50%;
   transform: translateX(-50%);
 }
 
-.navigation-manual .manual-btn {
+.navigation-manual li {
   border: 8px solid #737373;
   border-radius: 10px;
   cursor: pointer;
 }
 
-.navigation-manual .manual-btn:not(:last-child) {
+.navigation-manual li:not(:last-child) {
   margin-right: 24px;
-}
-
-#radio1:checked ~ .first {
-  margin-left: 0;
-}
-
-#radio2:checked ~ .first {
-  margin-left: -20%;
-}
-
-#radio3:checked ~ .first {
-  margin-left: -40%;
-}
-
-#radio4:checked ~ .first {
-  margin-left: -60%;
-}
-
-#radio5:checked ~ .first {
-  margin-left: -80%;
 }
