@@ -295,7 +295,7 @@ li {
 
 .navigation-manual {
   position: absolute;
-  margin-top: 280px;
+  margin-top: 260px;
   display: flex;
   /* 버튼 중앙 정렬 */
   left: 50%;
@@ -360,5 +360,4 @@ li {
   font-size: 25px;
   font-weight: 700;
   line-height: 35px;
-
 }
