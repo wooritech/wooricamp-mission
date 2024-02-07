@@ -104,13 +104,6 @@ function prevMove() {
     paginationItems[slideNum - 1].classList.add("active");
   }
 }
-// 페이지네이션 버튼 생성
-for (let i = 0; i < maxSlide; i++) {
-  if (i === 0) pagination.innerHTML += `<li class="active">•</li>`;
-  else pagination.innerHTML += `<li>•</li>`;
-}
-
-const paginationItems = document.querySelectorAll(".slide-pagination > li");
 
 // 페이지네이션 작동 버튼
 for (let i = 0; i < maxSlide; i++) {
@@ -145,14 +138,16 @@ let dots = document.querySelectorAll('.slider .navigation-manual li');
 let active = 0;
 let lengthItems = items.length - 1;
 
-let refreshSlider = setInterval(() => {
+function carousel() {
   if(active + 1 > lengthItems) {
     active = 0;
   } else {
     active = active + 1;
   }
   reloadSlider();
-}, 6000);
+}
+
+let refreshSlider = setInterval(() => {carousel}, 6000);
 
 function reloadSlider() {
   //이미지 하나의 크기 * 인덱스 번호
@@ -164,14 +159,7 @@ function reloadSlider() {
   lastActiveDot.classList.remove('active');
   dots[active].classList.add('active');
   clearInterval(refreshSlider);
-  refreshSlider = setInterval(() => {
-    if(active + 1 > lengthItems) {
-      active = 0;
-    } else {
-      active = active + 1;
-    }
-    reloadSlider();
-  }, 6000);
+  refreshSlider = setInterval(() => {carousel}, 6000);
 }
 
 dots.forEach((li, key) => {
