@@ -28,8 +28,8 @@ vscode의 branch 연결에서 꼬여서 시간을 날렸다.
 
 공백없이 만들기 위해 position: absolute의 값을 0으로 했더니 li로 작성한 a들이 겹쳐 나온다.  
 
-![출력](./?png/day02.png)
-![코드](./?png/day02-1.png)
+![출력](./github/images/day02.png)
+![코드](./github/images/day02-1.png)
 
 ## 2024-01-22-03
 
@@ -82,7 +82,7 @@ box-shadow: 숫자1 숫자2 숫자3 숫자4 색상 inset;
 
 ### useState
 
-![Alt text](./readme-in-img/image.png)
+![Alt text](./github/images/image.png)
 
 ## 2024-01-30-09
 
@@ -177,3 +177,13 @@ setinterval을 종료시키고 재실행하는데에서 막히고있다.
 드디어 캐레셀이 완성됬다.   
 이제 리뷰받고 올리변 된다.  
 그럼 3페이지까지는 문제 없겠네...  
+
+## 2024-02-06-14
+
+캐러셀2 완성  
+푸터 완성  
+상품 목록 pr 대기중
+
+### TIL = today i learned
+
+학습 내용 정리하는 장소 만들기
