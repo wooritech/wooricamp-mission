@@ -46,21 +46,22 @@ function moveNextSlide() {
 }
 
 //필요한 코드인가?
-function reloadSlider() {
-  //이미지 하나의 크기 * 인덱스 번호
-  let checkLeft = items[active].offsetLeft;
-  // 자동 슬라이드되는 크기
-  list.style.left = '-' + checkLeft + 'px';
+// function reloadSlider() {
+//   //이미지 하나의 크기 * 인덱스 번호
+//   let checkLeft = items[active].offsetLeft;
+//   // 자동 슬라이드되는 크기
+//   list.style.left = '-' + checkLeft + 'px';
   
-  let lastActiveDot = document.querySelector('.slider .navigation-manual li.active');
-  lastActiveDot.classList.remove('active');
-  dots[active].classList.add('active');
-  // clearInterval(refreshSlider);
+//   let lastActiveDot = document.querySelector('.slider .navigation-manual li.active');
+//   lastActiveDot.classList.remove('active');
+//   dots[active].classList.add('active');
+//   // clearInterval(refreshSlider);
   // refreshSlider = setInterval(moveNextSlide, 500)
-}
+// }
+
 //딜레이 초기화 안됨
-dots.forEach((li, key) => {
+dots.forEach((li, active) => {
   li.addEventListener('click', function() {
-    moveSlideTo(key)    
+    moveSlideTo(active)    
   })
 })
