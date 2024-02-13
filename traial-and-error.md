@@ -187,3 +187,104 @@ setinterval을 종료시키고 재실행하는데에서 막히고있다.
 ### TIL = today i learned
 
 학습 내용 정리하는 장소 만들기
+
+
+## 2024-02-13-17
+
+두개의 슬라이드가 따로 돌아가게 만들려고했는데 1번 슬라이드가 다 돌아가야 두번째 슬라이드가 돌아간다.
+
+```html
+<div class="container1">
+    <div class="wrap slideshow1">
+      <div class="carousel">
+        <div class="carousel-item">
+          <img class="carousel-img" src="./public/banner01.png" alt="">
+          <img class="carousel-img" src="./public/banner02.png" alt="">
+          <img class="carousel-img" src="./public/banner03.png" alt="">
+          <img class="carousel-img" src="./public/banner04.png" alt="">
+        </div>
+        <div class="carousel-btn">
+          <button onclick="stop" type="button"></button>
+          <button onclick="stop" type="button"></button>
+          <button onclick="stop" type="button"></button>
+          <button onclick="stop" type="button"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container2">
+    <div class="wrap slideshow2">
+      <div class="carousel">
+        <div class="carousel-item">
+          <img class="carousel-img" src="./public/banner2-01.jpeg" alt="">
+          <img class="carousel-img" src="./public/banner2-02.jpeg" alt="">
+          <img class="carousel-img" src="./public/banner2-03.jpeg" alt="">
+          <img class="carousel-img" src="./public/banner2-04.jpeg" alt="">
+          <img class="carousel-img" src="./public/banner2-05.jpeg" alt="">
+        </div>
+        <div class="carousel-btn">
+          <button onclick="stop" type="button"></button>
+          <button onclick="stop" type="button"></button>
+          <button onclick="stop" type="button"></button>
+          <button onclick="stop" type="button"></button>
+          <button onclick="stop" type="button"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module">
+    import slideshow from "./main.js"
+
+    slideshow(".slideshow1");
+    slideshow(".slideshow2");
+  </script>
+```
+```js
+const slideshow = (target) => {
+  document.addEventListener("DOMContentLoaded", function () {
+    const carouselItems = document.querySelectorAll(".carousel-img");
+    const carouselButtons = document.querySelectorAll(".carousel-btn button");
+  
+    let currentIndex = 0;
+    const totalItems = carouselItems.length;
+  
+    function showItem(index) {
+      if (index < 0) {
+        index = totalItems - 1;
+      } else if (index >= totalItems) {
+        index = 0;
+      }
+  
+      carouselItems.forEach((item) => {
+        item.style.display = "none";
+      });
+  
+      carouselItems[index].style.display = "block";
+      currentIndex = index;
+  
+      carouselButtons.forEach((button) => {
+        button.classList.remove("active");
+      });
+  
+      carouselButtons[index].classList.add("active");
+    }
+  
+    function showNext() {
+      const nextIndex = currentIndex + 1;
+      showItem(nextIndex);
+    }
+  
+    carouselButtons.forEach((button, index) => {
+      button.addEventListener("click", () => {
+        showItem(index);
+      });
+    });
+  
+    setInterval(showNext, 5000);
+   
+    showItem(currentIndex);
+  });
+};
+
+export default slideshow;
+```
