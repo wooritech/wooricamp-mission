@@ -288,3 +288,10 @@ const slideshow = (target) => {
 
 export default slideshow;
 ```
+
+## 2024-02-14-18
+
+#### css의 transition이 작동하지 않을 경우
+
+- display가 none일 경우 1에서 2로 넘어가는게 아니라 아무것도 없는 상태라고 인식하여 작동하지 않는다.
+- higith가 auto인 경우
