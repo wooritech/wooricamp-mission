@@ -301,3 +301,6 @@ export default slideshow;
 Uncaught SyntaxError: Unexpected token 'export'
 
 1. export를 사용할 script에 type = "module"을 붙인다.
+2. export default를 module.exports = 로 바꾼다.
+
+개발자도구 디버깅 "https://mainia.tistory.com/2801"

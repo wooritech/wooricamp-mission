@@ -36,11 +36,18 @@ const slideshow = (target, delay) => {
   // 슬라이드 전체를 선택해 값을 변경해주기 위해 슬라이드 전체 선택하기
   slideItems = slide.querySelectorAll(".carousel-slide");
 
-  let offset = slideWidth + slideNum;
-  
-  slideItems.forEach((i) => {
-    i.setAttribute("style", `left: ${-offset}px`);
-  });
+  // let offset = slideWidth * slideNum;
+  const itemsMove = (zeroTransition = false) => {
+    
+    slideItems.forEach((i) => {
+      const offset = slideNum * slideWidth;
+      if(zeroTransition) {
+        i.setAttribute("style", `transition: 0s; left: ${-offset}px`);
+      } else {
+        i.setAttribute("style", `left: ${-offset}px`);
+      }
+    });
+  }
 
   function nextMove() {
     //슬라이드 번호 1 상승
@@ -48,28 +55,24 @@ const slideshow = (target, delay) => {
     //불린 데이터 반환
     if (slideNum <= maxSlide) {
       //슬라이드 크기 * 슬라이드 번호
-      const offset = slideWidth * slideNum;
+      // offset = slideWidth * slideNum;
       //슬라이드 전체 크기많큼 반복 순회 
-      slideItems.forEach((i) => {
-        //setAttribute('속성이름','속성값') 속성이름에 속성값 할당
-        i.setAttribute("style", `left: ${-offset}px`);
-      });
+      itemsMove()
       paginationItems.forEach((i) => i.classList.remove("active"));
       paginationItems[slideNum - 1].classList.add("active");
     } else {
       slideNum = 0;
-      let offset = slideWidth * slideNum;
-      slideItems.forEach((i) => {
-        // i.setAttribute("style", `transition: ${0}s; left: ${-offset}px`); ${}  삭제 가능
-        i.setAttribute("style", `transition: 0s; left: ${-offset}px`);
-      });
+      // offset = slideWidth * slideNum;
+      // slideItems.forEach((i) => {
+      //   // i.setAttribute("style", `transition: ${0}s; left: ${-offset}px`); ${}  삭제 가능
+      //   i.setAttribute("style", `transition: 0s; left: ${-offset}px`);
+      // });
+      itemsMove(true)
       slideNum++;
-      offset = slideWidth * slideNum;
+      // offset = slideWidth * slideNum;
       //setTimeout 특정시간 지난 후 코드 실행 함수
       setTimeout(() => {
-        slideItems.forEach((i) => {
-          i.setAttribute("style", `left: ${-offset}px`);
-        });
+        itemsMove()
       });
       paginationItems.forEach((i) => i.classList.remove("active"));
       paginationItems[slideNum - 1].classList.add("active");
@@ -89,12 +92,10 @@ const slideshow = (target, delay) => {
     paginationItems[i].addEventListener("click", () => {
       //i는 클릭한 슬라이드 번호 1은 기본 슬라이드 1번
       slideNum = i + 1; 
-      const offset = slideWidth * slideNum;
+      // const offset = slideWidth * slideNum;
       clearInterval(loopInterval);
       loopInterval = setInterval(() => {nextMove();}, delay);
-      slideItems.forEach((i) => {
-        i.setAttribute("style", `left: ${-offset}px`);
-      });
+      itemsMove();
       paginationItems.forEach((i) => i.classList.remove("active"));
       paginationItems[slideNum - 1].classList.add("active");
     });
