@@ -5,9 +5,12 @@
 //     }
 // }); swiper.js 라이브러리 없으면 작동 안함
 
+// js 전체 모둘화해서 export로 내보내기
+// 캐러셀마다 적용시키기 위해 target으로 적용시킬 캐러셀 선택 delay로 시간 선택
 const slideshow = (target, delay) => {
   const slide = document.querySelector(target);
   //슬라이드 크기 구하기 //clientWidth 요소의 가로값 가져오기
+  // slideWidth 제거 itemsMove에서 slide.clientWidth 직접 사용
   // let slideWidth = slide.clientWidth;
   // 값 변경을 위한 슬라이드 전체 선택
   let slideItems = slide.querySelectorAll(".carousel-slide");
@@ -36,11 +39,19 @@ const slideshow = (target, delay) => {
   // 슬라이드 전체를 선택해 값을 변경해주기 위해 슬라이드 전체 선택하기
   slideItems = slide.querySelectorAll(".carousel-slide");
 
+  // offset과 slideWidth의 값이 변하는것을 추적하던 것을 slide를 사용하여 추적하도록 변경한다 
   // let offset = slideWidth * slideNum;
+
+  // 중복코드였던 slideItems.forEach((i) => {i.setAttribute("style", `left: ${-offset}px`);});
+  // 를 아래 내용처럼 함수로 뽑아서 사용
+  // 슬라이드 크기많큼 반복 선회
   const itemsMove = (zeroTransition = false) => {
-    
     slideItems.forEach((i) => {
+      // offset을 itemsMove 내부에서 선언한다.
+      // 슬라이드 번호 * 슬라이드 크기
       const offset = slideNum * slide.clientWidth;
+      //if 문을 사용하여 zeroTransition의 값이 기본값인 false면 else문을 실행하도록 한다.
+      //true면 if문을 실행
       if(zeroTransition) {
         i.setAttribute("style", `transition: 0s; left: ${-offset}px`);
       } else {
@@ -48,7 +59,7 @@ const slideshow = (target, delay) => {
       }
     });
   }
-
+  // 페이지 번호에 따른 active 설정 로직에 관한 내용 함수화하여 중복제거
   const resetActivePagination = () => {
     paginationItems.forEach((i) => i.classList.remove("active"));
     paginationItems[slideNum - 1].classList.add("active");
@@ -59,26 +70,14 @@ const slideshow = (target, delay) => {
     slideNum++;
     //불린 데이터 반환
     if (slideNum <= maxSlide) {
-      //슬라이드 크기 * 슬라이드 번호
-      // offset = slideWidth * slideNum;
-      //슬라이드 전체 크기많큼 반복 순회 
       itemsMove()
       resetActivePagination()
     } else {
       slideNum = 0;
-      // offset = slideWidth * slideNum;
-      // slideItems.forEach((i) => {
-      //   // i.setAttribute("style", `transition: ${0}s; left: ${-offset}px`); ${}  삭제 가능
-      //   i.setAttribute("style", `transition: 0s; left: ${-offset}px`);
-      // });
       itemsMove(true)
       slideNum++;
-      // offset = slideWidth * slideNum;
-      //setTimeout 특정시간 지난 후 코드 실행 함수
-      setTimeout(() => {
-        itemsMove()
-      });
-     resetActivePagination()
+      itemsMove()
+      resetActivePagination()
     }
   }
   // 페이지네이션 버튼 생성
@@ -103,6 +102,7 @@ const slideshow = (target, delay) => {
     });
   }
 
+  // slideWidth를 제거
   // window.addEventListener("resize", () => {
   //   slideWidth = slide.clientWidth;
   // });

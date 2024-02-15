@@ -2,6 +2,8 @@
 @import url("footer.css");
 
 /* 메인 캐러셀 */
+/* 캐러셀1에서만 사용할 내용은 앞에 .carousel-main1 추가 */
+/* 캐러셀 전체에서 사용할 내용은 없이 작성 */
 .carousel-main1 {
   width: 100%;
   height: 100%;
@@ -36,6 +38,7 @@
 }
 
 /* 페이지네이션*/
+/* 캐러셀1,2 공동사용 */
 ul, li {
   list-style-type: none;
   padding: 0;
@@ -151,6 +154,7 @@ ul, li {
 }
 
 /* 두번째 캐러셀 */
+/* 캐러셀1과 중복되지 않는 부분한 추가 코딩 */
 
 .carousel {
   width: 100%;

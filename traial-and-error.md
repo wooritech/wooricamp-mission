@@ -302,5 +302,17 @@ Uncaught SyntaxError: Unexpected token 'export'
 
 1. export를 사용할 script에 type = "module"을 붙인다.
 2. export default를 module.exports = 로 바꾼다.
+3. 동일한 js 중복해서 가져올 경우 하나의 경로에서 type = "module"이 없으면 정상작동하면서 오류 메시지가 나온다.
 
 개발자도구 디버깅 "https://mainia.tistory.com/2801"
+
+### js를 작성할 경우 추적해야되는 함수를 최소한으로 작성한다.
+
+### 함수의 함수화
+
+```js
+const 이름 = () => {
+  함수화할 함수;
+}
+```
+
