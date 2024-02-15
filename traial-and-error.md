@@ -295,3 +295,9 @@ export default slideshow;
 
 - display가 none일 경우 1에서 2로 넘어가는게 아니라 아무것도 없는 상태라고 인식하여 작동하지 않는다.
 - higith가 auto인 경우
+
+## 2024-02-15-19
+
+Uncaught SyntaxError: Unexpected token 'export'
+
+1. export를 사용할 script에 type = "module"을 붙인다.

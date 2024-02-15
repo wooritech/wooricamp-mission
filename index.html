@@ -53,8 +53,8 @@
     </div>
   </header>
 
-  <div class="carousel-main">
-    <div class="carousel-wrapper">
+  <div class="carousel-main1">
+    <div class="carousel-wrapper slideshow1">
       <div class="carousel-slide">
         <img src="./public/images/banner01.png" alt="banner01">
       </div>
@@ -106,32 +106,25 @@
   
   <!-- 메인 페이지 캐러셀 2 -->
   <div class="carousel">
-    <div class="slider">
-      <div class="slides">
-  
-        <div class="slide">
-          <img src="./public/images/banner2-01.jpeg" alt="캐러셀2-1">
+    <div class="carousel-main2">
+      <div class="carousel-wrapper slideshow2">
+        <div class="carousel-slide">
+          <img src="./public/images/banner2-01.jpeg" alt="banner01">
         </div>
-        <div class="slide">
-          <img src="./public/images/banner2-02.jpeg" alt="캐러셀2-2">
+        <div class="carousel-slide">
+          <img src="./public/images/banner2-02.jpeg" alt="banner02">
         </div>
-        <div class="slide">
-          <img src="./public/images/banner2-03.jpeg" alt="캐러셀2-3">
+        <div class="carousel-slide">
+          <img src="./public/images/banner2-03.jpeg" alt="banner03">
         </div>
-        <div class="slide">
-          <img src="./public/images/banner2-04.jpeg" alt="캐러셀2-4">
+        <div class="carousel-slide">
+          <img src="./public/images/banner2-04.jpeg" alt="banner04">
         </div>
-        <div class="slide">
-          <img src="./public/images/banner2-05.jpeg" alt="캐러셀2-5">
+        <div class="carousel-slide">
+          <img src="./public/images/banner2-05.jpeg" alt="banner04">
         </div>
+        <ul class="slide-pagination"></ul>
       </div>
-      <ul class="navigation-manual">
-        <li class="active"></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
     </div>
   </div>
   <!-- FOOTER -->
@@ -167,5 +160,12 @@
       </div>
     </div>
   </footer>     
+  <script type="module">
+    import slideshow from "./main.js"
+
+    slideshow(".slideshow1", 2000);
+    slideshow(".slideshow2", 4000);
+    
+  </script>
 </body>
 </html>
