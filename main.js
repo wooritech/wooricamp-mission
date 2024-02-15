@@ -8,7 +8,7 @@
 const slideshow = (target, delay) => {
   const slide = document.querySelector(target);
   //슬라이드 크기 구하기 //clientWidth 요소의 가로값 가져오기
-  let slideWidth = slide.clientWidth;
+  // let slideWidth = slide.clientWidth;
   // 값 변경을 위한 슬라이드 전체 선택
   let slideItems = slide.querySelectorAll(".carousel-slide");
   //최대값이 보유한 슬라이드 수를 넘기지 않도록
@@ -40,13 +40,18 @@ const slideshow = (target, delay) => {
   const itemsMove = (zeroTransition = false) => {
     
     slideItems.forEach((i) => {
-      const offset = slideNum * slideWidth;
+      const offset = slideNum * slide.clientWidth;
       if(zeroTransition) {
         i.setAttribute("style", `transition: 0s; left: ${-offset}px`);
       } else {
         i.setAttribute("style", `left: ${-offset}px`);
       }
     });
+  }
+
+  const resetActivePagination = () => {
+    paginationItems.forEach((i) => i.classList.remove("active"));
+    paginationItems[slideNum - 1].classList.add("active");
   }
 
   function nextMove() {
@@ -58,8 +63,7 @@ const slideshow = (target, delay) => {
       // offset = slideWidth * slideNum;
       //슬라이드 전체 크기많큼 반복 순회 
       itemsMove()
-      paginationItems.forEach((i) => i.classList.remove("active"));
-      paginationItems[slideNum - 1].classList.add("active");
+      resetActivePagination()
     } else {
       slideNum = 0;
       // offset = slideWidth * slideNum;
@@ -74,8 +78,7 @@ const slideshow = (target, delay) => {
       setTimeout(() => {
         itemsMove()
       });
-      paginationItems.forEach((i) => i.classList.remove("active"));
-      paginationItems[slideNum - 1].classList.add("active");
+     resetActivePagination()
     }
   }
   // 페이지네이션 버튼 생성
@@ -96,14 +99,13 @@ const slideshow = (target, delay) => {
       clearInterval(loopInterval);
       loopInterval = setInterval(() => {nextMove();}, delay);
       itemsMove();
-      paginationItems.forEach((i) => i.classList.remove("active"));
-      paginationItems[slideNum - 1].classList.add("active");
+      resetActivePagination()
     });
   }
 
-  window.addEventListener("resize", () => {
-    slideWidth = slide.clientWidth;
-  });
+  // window.addEventListener("resize", () => {
+  //   slideWidth = slide.clientWidth;
+  // });
 
   //루프, 딜레이
   let loopInterval = setInterval(() => {
