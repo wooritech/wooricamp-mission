@@ -18,6 +18,9 @@ const slideshow = (target, delay) => {
   const maxSlide = slideItems.length;
   const pagination = slide.querySelector(".slide-pagination");
   //버튼 클릭시 현재 슬라이드 위치 나타내기
+  // 1이면 마지막에서 2로 끊어져서
+  // 0이면 마지막에서 1로 끊어져서
+  // -1이면 마지막에서 1로 시간 2배
   let slideNum = 1;
 
   // 무한 슬라이드
@@ -42,8 +45,7 @@ const slideshow = (target, delay) => {
   // offset과 slideWidth의 값이 변하는것을 추적하던 것을 slide를 사용하여 추적하도록 변경한다 
   // let offset = slideWidth * slideNum;
 
-  // 중복코드였던 slideItems.forEach((i) => {i.setAttribute("style", `left: ${-offset}px`);});
-  // 를 아래 내용처럼 함수로 뽑아서 사용
+  // 중복코드였던 slideItems.forEach((i) => {i.setAttribute("style", `left: ${-offset}px`);});를 아래 내용처럼 함수로 뽑아서 사용
   // 슬라이드 크기많큼 반복 선회
   const itemsMove = (zeroTransition = false) => {
     slideItems.forEach((i) => {
