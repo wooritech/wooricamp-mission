@@ -7,10 +7,10 @@
 
 // js 전체 모둘화해서 export로 내보내기
 // 캐러셀마다 적용시키기 위해 target으로 적용시킬 캐러셀 선택 delay로 시간 선택
-const slideshow = (target, delay) => {
+const createCarousel = (target, delay) => {
   const slide = document.querySelector(target);
   //슬라이드 크기 구하기 //clientWidth 요소의 가로값 가져오기
-  // slideWidth 제거 itemsMove에서 slide.clientWidth 직접 사용
+  // slideWidth 제거 pointResetCarouselItem에서 slide.clientWidth 직접 사용
   // let slideWidth = slide.clientWidth;
   // 값 변경을 위한 슬라이드 전체 선택
   let slideItems = slide.querySelectorAll(".carousel-slide");
@@ -47,10 +47,10 @@ const slideshow = (target, delay) => {
 
   // 중복코드였던 slideItems.forEach((i) => {i.setAttribute("style", `left: ${-offset}px`);});를 아래 내용처럼 함수로 뽑아서 사용
   // 슬라이드 크기많큼 반복 선회
-  const itemsMove = (zeroTransition = false) => {
+  const pointResetCarouselItem = (zeroTransition = false) => {
 
     slideItems.forEach((i) => {
-      // offset을 itemsMove 내부에서 선언한다.
+      // offset을 pointResetCarouselItem 내부에서 선언한다.
       // 슬라이드 번호 * 슬라이드 크기
       const offset = slideNum * slide.clientWidth;
       //if 문을 사용하여 zeroTransition의 값이 기본값인 false면 else문을 실행하도록 한다.
@@ -73,13 +73,13 @@ const slideshow = (target, delay) => {
     slideNum++;
     //불린 데이터 반환
     if (slideNum <= maxSlide) {
-      itemsMove()
+      pointResetCarouselItem()
       resetActivePagination()
     } else {
       slideNum = 0;
-      itemsMove(true)
+      pointResetCarouselItem(true)
       slideNum++;
-      itemsMove()
+      pointResetCarouselItem()
       resetActivePagination()
     }
   }
@@ -100,7 +100,7 @@ const slideshow = (target, delay) => {
       // const offset = slideWidth * slideNum;
       clearInterval(loopInterval);
       loopInterval = setInterval(() => {nextMove();}, delay);
-      itemsMove();
+      pointResetCarouselItem();
       resetActivePagination()
     });
   }
@@ -117,7 +117,7 @@ const slideshow = (target, delay) => {
 
   // 슬라이드 초기 설정
 
-  itemsMove()
+  pointResetCarouselItem()
 };
 
-export default slideshow;
+export default createCarousel;
