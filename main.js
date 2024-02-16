@@ -48,6 +48,7 @@ const slideshow = (target, delay) => {
   // 중복코드였던 slideItems.forEach((i) => {i.setAttribute("style", `left: ${-offset}px`);});를 아래 내용처럼 함수로 뽑아서 사용
   // 슬라이드 크기많큼 반복 선회
   const itemsMove = (zeroTransition = false) => {
+
     slideItems.forEach((i) => {
       // offset을 itemsMove 내부에서 선언한다.
       // 슬라이드 번호 * 슬라이드 크기
@@ -113,6 +114,10 @@ const slideshow = (target, delay) => {
   let loopInterval = setInterval(() => {
     nextMove();
   }, delay);
+
+  // 슬라이드 초기 설정
+
+  itemsMove()
 };
 
 export default slideshow;
