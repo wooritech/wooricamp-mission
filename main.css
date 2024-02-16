@@ -2,7 +2,9 @@
 @import url("footer.css");
 
 /* 메인 캐러셀 */
-.carousel-main {
+/* 캐러셀1에서만 사용할 내용은 앞에 .carousel-main1 추가 */
+/* 캐러셀 전체에서 사용할 내용은 없이 작성 */
+.carousel-main1 {
   width: 100%;
   height: 100%;
   position: relative;
@@ -21,6 +23,9 @@
 .carousel-slide {
   flex: 0 0 100%;
   position: relative;
+}
+
+.carousel-main1 .carousel-slide {
   /* js이동 방향을 지정할 경우에는 transform */
   transition: left .8s;
 }
@@ -33,8 +38,8 @@
 }
 
 /* 페이지네이션*/
-ul,
-li {
+/* 캐러셀1,2 공동사용 */
+ul, li {
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -45,6 +50,7 @@ li {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  color: #737373;
 }
 .slide-pagination > li {
   cursor: pointer;
@@ -148,6 +154,7 @@ li {
 }
 
 /* 두번째 캐러셀 */
+/* 캐러셀1과 중복되지 않는 부분한 추가 코딩 */
 
 .carousel {
   width: 100%;
@@ -160,7 +167,7 @@ li {
   align-items: center;
 }
 
-.carousel .slider {
+.carousel-main2 {
   width: 880px;
   height: 301px;
   border-radius: 16px;
@@ -173,48 +180,7 @@ li {
   display: flex;
 }
 
-/*슬라이더 전체 크기*/
-.carousel .slider .slides {
-  width: 500%;
-  height: 100%;
-  display: flex;
-  position: relative;
-  /*버튼 클릭시 전환시간*/
-  transition: 1.2s;
-}
-
-.carousel .slider .slides input {
-  display: none;
-}
-
-.carousel .slider .slides .slide {
-  /*슬라이더 하나가 가지는 크기*/
-  width: 100%;
-  /* 버튼 클릭시 전환시간 js 완성후 상단으로 이동*/
-  /* 자옫 슬라이드가 실행되는 위치가 변경됨 */
-  /* transition: 1.2s; */
-}
-
-.carousel .slider .slides .slide img {
-  width: 880px;
-  height: 301px;
-}
-
-.navigation-manual {
-  position: absolute;
-  margin-top: 260px;
-  display: flex;
-  /* 버튼 중앙 정렬 */
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.navigation-manual li {
-  border: 8px solid #737373;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.navigation-manual li:not(:last-child) {
-  margin-right: 24px;
+.carousel-main2 .carousel-slide {
+  /* js이동 방향을 지정할 경우에는 transform */
+  transition: left 1.2s;
 }

@@ -187,3 +187,137 @@ setinterval을 종료시키고 재실행하는데에서 막히고있다.
 ### TIL = today i learned
 
 학습 내용 정리하는 장소 만들기
+
+
+## 2024-02-13-17
+
+두개의 슬라이드가 따로 돌아가게 만들려고했는데 1번 슬라이드가 다 돌아가야 두번째 슬라이드가 돌아간다.
+
+```html
+<div class="container1">
+    <div class="wrap slideshow1">
+      <div class="carousel">
+        <div class="carousel-item">
+          <img class="carousel-img" src="./public/banner01.png" alt="">
+          <img class="carousel-img" src="./public/banner02.png" alt="">
+          <img class="carousel-img" src="./public/banner03.png" alt="">
+          <img class="carousel-img" src="./public/banner04.png" alt="">
+        </div>
+        <div class="carousel-btn">
+          <button onclick="stop" type="button"></button>
+          <button onclick="stop" type="button"></button>
+          <button onclick="stop" type="button"></button>
+          <button onclick="stop" type="button"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container2">
+    <div class="wrap slideshow2">
+      <div class="carousel">
+        <div class="carousel-item">
+          <img class="carousel-img" src="./public/banner2-01.jpeg" alt="">
+          <img class="carousel-img" src="./public/banner2-02.jpeg" alt="">
+          <img class="carousel-img" src="./public/banner2-03.jpeg" alt="">
+          <img class="carousel-img" src="./public/banner2-04.jpeg" alt="">
+          <img class="carousel-img" src="./public/banner2-05.jpeg" alt="">
+        </div>
+        <div class="carousel-btn">
+          <button onclick="stop" type="button"></button>
+          <button onclick="stop" type="button"></button>
+          <button onclick="stop" type="button"></button>
+          <button onclick="stop" type="button"></button>
+          <button onclick="stop" type="button"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module">
+    import slideshow from "./main.js"
+
+    slideshow(".slideshow1");
+    slideshow(".slideshow2");
+  </script>
+```
+```js
+const slideshow = (target) => {
+  document.addEventListener("DOMContentLoaded", function () {
+    const carouselItems = document.querySelectorAll(".carousel-img");
+    const carouselButtons = document.querySelectorAll(".carousel-btn button");
+  
+    let currentIndex = 0;
+    const totalItems = carouselItems.length;
+  
+    function showItem(index) {
+      if (index < 0) {
+        index = totalItems - 1;
+      } else if (index >= totalItems) {
+        index = 0;
+      }
+  
+      carouselItems.forEach((item) => {
+        item.style.display = "none";
+      });
+  
+      carouselItems[index].style.display = "block";
+      currentIndex = index;
+  
+      carouselButtons.forEach((button) => {
+        button.classList.remove("active");
+      });
+  
+      carouselButtons[index].classList.add("active");
+    }
+  
+    function showNext() {
+      const nextIndex = currentIndex + 1;
+      showItem(nextIndex);
+    }
+  
+    carouselButtons.forEach((button, index) => {
+      button.addEventListener("click", () => {
+        showItem(index);
+      });
+    });
+  
+    setInterval(showNext, 5000);
+   
+    showItem(currentIndex);
+  });
+};
+
+export default slideshow;
+```
+
+## 2024-02-14-18
+
+#### css의 transition이 작동하지 않을 경우
+
+- display가 none일 경우 1에서 2로 넘어가는게 아니라 아무것도 없는 상태라고 인식하여 작동하지 않는다.
+- higith가 auto인 경우
+
+## 2024-02-15-19
+
+Uncaught SyntaxError: Unexpected token 'export'
+
+1. export를 사용할 script에 type = "module"을 붙인다.
+2. export default를 module.exports = 로 바꾼다.
+3. 동일한 js 중복해서 가져올 경우 하나의 경로에서 type = "module"이 없으면 정상작동하면서 오류 메시지가 나온다.
+
+개발자도구 디버깅 "https://mainia.tistory.com/2801"
+
+### js를 작성할 경우 추적해야되는 함수를 최소한으로 작성한다.
+
+### 함수의 함수화
+
+```js
+const 이름 = () => {
+  함수화할 함수;
+}
+```
+
+### 캐러셀이 마지막 슬라이드 부터 나오는 경우
+
+- 시작 슬라이드를 1로 지정할 경우 마지막 슬라이드부터 나오고 2번 슬라이드로 transition없이 바로 넘어간다
+- 시작 슬라이드를 0로 지정할 경우 마지막 슬라이드부터 나오고 1번 슬라이드로 transition없이 바로 넘어간다
+- 시작 슬라이드를 -1로 지정할 경우 마지막 슬라이드부터 나오고 딜레이의 2배가 지난후 1번 슬라이드로 transition이 적용되며 넘어간다
