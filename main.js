@@ -10,7 +10,7 @@
 const createCarousel = (target, delay) => {
   const slide = document.querySelector(target);
   //슬라이드 크기 구하기 //clientWidth 요소의 가로값 가져오기
-  // slideWidth 제거 pointResetCarouselItem에서 slide.clientWidth 직접 사용
+  // slideWidth 제거 resetPointCarouselItems에서 slide.clientWidth 직접 사용
   // let slideWidth = slide.clientWidth;
   // 값 변경을 위한 슬라이드 전체 선택
   let slideItems = slide.querySelectorAll(".carousel-slide");
@@ -23,22 +23,25 @@ const createCarousel = (target, delay) => {
   // -1이면 마지막에서 1로 시간 2배
   let slideNum = 1;
 
-  // 무한 슬라이드
-  const startSlide = slideItems[0];
-  const endSlide = slideItems[slideItems.length - 1];
-  const startElem = document.createElement("div");
-  const endElem = document.createElement("div");
+  const makeLoopSlide = () => {
+      // 무한 슬라이드
+    const startSlide = slideItems[0];
+    const endSlide = slideItems[slideItems.length - 1];
+    const startElem = document.createElement("div");
+    const endElem = document.createElement("div");
 
-  endSlide.classList.forEach((c) => endElem.classList.add(c));
-  endElem.innerHTML = endSlide.innerHTML;
+    endSlide.classList.forEach((c) => endElem.classList.add(c));
+    endElem.innerHTML = endSlide.innerHTML;
 
-  startSlide.classList.forEach((c) => startElem.classList.add(c));
-  startElem.innerHTML = startSlide.innerHTML;
+    startSlide.classList.forEach((c) => startElem.classList.add(c));
+    startElem.innerHTML = startSlide.innerHTML;
 
-  // 슬라이드 앞뒤로 각각 마지막, 첫번쨰 슬라이드 붙여주기
-  slideItems[0].before(endElem);
-  slideItems[slideItems.length - 1].after(startElem);
-
+    // 슬라이드 앞뒤로 각각 마지막, 첫번쨰 슬라이드 붙여주기
+    slideItems[0].before(endElem);
+    slideItems[slideItems.length - 1].after(startElem);
+  };
+  
+  makeLoopSlide()
   // 슬라이드 전체를 선택해 값을 변경해주기 위해 슬라이드 전체 선택하기
   slideItems = slide.querySelectorAll(".carousel-slide");
 
@@ -47,10 +50,10 @@ const createCarousel = (target, delay) => {
 
   // 중복코드였던 slideItems.forEach((i) => {i.setAttribute("style", `left: ${-offset}px`);});를 아래 내용처럼 함수로 뽑아서 사용
   // 슬라이드 크기많큼 반복 선회
-  const pointResetCarouselItem = (zeroTransition = false) => {
+  const resetPointCarouselItems = (zeroTransition = false) => {
 
     slideItems.forEach((i) => {
-      // offset을 pointResetCarouselItem 내부에서 선언한다.
+      // offset을 resetPointCarouselItems 내부에서 선언한다.
       // 슬라이드 번호 * 슬라이드 크기
       const offset = slideNum * slide.clientWidth;
       //if 문을 사용하여 zeroTransition의 값이 기본값인 false면 else문을 실행하도록 한다.
@@ -73,13 +76,13 @@ const createCarousel = (target, delay) => {
     slideNum++;
     //불린 데이터 반환
     if (slideNum <= maxSlide) {
-      pointResetCarouselItem()
+      resetPointCarouselItems()
       resetActivePagination()
     } else {
       slideNum = 0;
-      pointResetCarouselItem(true)
+      resetPointCarouselItems(true)
       slideNum++;
-      pointResetCarouselItem()
+      resetPointCarouselItems()
       resetActivePagination()
     }
   }
@@ -100,7 +103,7 @@ const createCarousel = (target, delay) => {
       // const offset = slideWidth * slideNum;
       clearInterval(loopInterval);
       loopInterval = setInterval(() => {nextMove();}, delay);
-      pointResetCarouselItem();
+      resetPointCarouselItems();
       resetActivePagination()
     });
   }
@@ -117,7 +120,7 @@ const createCarousel = (target, delay) => {
 
   // 슬라이드 초기 설정
 
-  pointResetCarouselItem()
+  resetPointCarouselItems()
 };
 
 export default createCarousel;
