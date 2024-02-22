@@ -1,41 +1,54 @@
-function menu2() {
-  const x = document.getElementById("select1");
-  const y = document.getElementById("select2");
-  const disp = document.getElementById("result");
-  disp.innerHTML = "가장 맛았는 강아지 사료("+x.value+')['+y.value+"]"
-};
+function menu() {
+  var selectBox1 = document.getElementById("select1");
+  var selectedValue1 = selectBox1.options[selectBox1.selectedIndex].value;
 
+  var selectBox2 = document.getElementById("select2");
+  var selectedValue2 = selectBox2.options[selectBox2.selectedIndex].value;
 
-sum = 0;
+  var priceDisplay = document.getElementById("price");
+  var price = getPrice(selectedValue1, selectedValue2);
 
-let x = document.getElementById("select1");
-let select1 = x.Option[s.selectedIndex].value;
-let y = document.getElementById("select2");
-let select2 = y.Option[s.selectedIndex].value;
-
-if (select1=월요일) {
-  sum += 50;
-} else if (select1=화요일) {
-  sum += 60;
-} else if(select1=수요일) {
-  sum += 70; 
-};
-
-if (select2=소고기) {
-  sum += 1000;
-  } else if (select2=닭고기) {
-    sum += 2000;
-  } else if(select2=연어) {
-    sum += 3000;
+  if (selectedValue1 != 0 && selectedValue2 != 0) {
+    priceDisplay.textContent = "가장 맛있는 강아지 사료 ("+selectBox1.value+')['+selectBox2.value+']'+ price;
+  } else {
+    priceDisplay.textContent = "";
+  }
 }
 
-for (let i = 0; i < 10;) {
-  innerHTML += '<li>셀렉트 선택으로 제품 추가하면 선택한 제품 정보 나옴<li>'
+function getPrice(productId1, productId2) {
+  var total = 0;
+  switch (productId1) {
+    case "월요일":
+      total += 50;
+      break;
+    case "화요일":
+      total += 60;
+      break;
+    case "수요일":
+      total += 70;
+      break;
+  }
+
+  switch (productId2) {
+    case "소고기":
+      total += 1000;
+      break;
+    case "닭고기":
+      total += 2000;
+      break;
+    case "연어":
+      total += 3000;
+      break;
+  }
+
+  return total;
 }
+
+
 
 // 정상 작동
-function btn() {
-  i = sum;
+function btn(total) {
+  i = total;
   if(i > 0) {
     alert(i+'입니다')
   }else if (i = 0){
