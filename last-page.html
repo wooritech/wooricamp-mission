@@ -65,21 +65,27 @@
           <p class="b">5,000원</p>
         </div>
         <div class="select">
-            <p class="a">생산요일</p>
-            <select id="select1" onchange="menu()">
-              <option value="">요일을 선택해주세요</option>
-              <option value="월요일">월요일(+50)</option>
-              <option value="화요일">화요일(+60)</option>
-              <option value="수요일">수요일(+70)</option>
-            </select>
-            <p class="a">상품명</p>
-            <select id="select2" onchange="menu()">
-              <option value="">사료 유형을 선택해주세요</option>
-              <option value="소고기">소고기(+1000)</option>
-              <option value="닭고기">치킨(+2000)</option>
-              <option value="연어">연어(+3000)</option>
-            </select>
-            <div id="price"></div>     
+            <div class="day">
+              <p class="a">생산요일</p>
+              <select id="select1" onchange="menu()">
+                <option value="">요일을 선택해주세요</option>
+                <option value="월요일">월요일(+50)</option>
+                <option value="화요일">화요일(+60)</option>
+                <option value="수요일">수요일(+70)</option>
+              </select>
+            </div>
+            <div class="code">
+              <p class="a">상품명</p>
+              <select id="select2" onchange="menu()">
+                <option value="">사료 유형을 선택해주세요</option>
+                <option value="소고기">소고기(+1000)</option>
+                <option value="닭고기">치킨(+2000)</option>
+                <option value="연어">연어(+3000)</option>
+              </select>
+            </div>
+            <li id="price"></li>
+            <span id="reset-btn" class="remove-product" style="display:none;" onclick="resetSelections()">Reset</span>
+
         </div>
 
 

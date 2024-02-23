@@ -6,17 +6,22 @@ function menu() {
   var selectedValue2 = selectBox2.options[selectBox2.selectedIndex].value;
 
   var priceDisplay = document.getElementById("price");
-  var price = getPrice(selectedValue1, selectedValue2);
+  var resetBtn = document.getElementById("reset-btn");
+
 
   if (selectedValue1 != 0 && selectedValue2 != 0) {
+    var price = getPrice(selectedValue1, selectedValue2);
     priceDisplay.textContent = "가장 맛있는 강아지 사료 ("+selectBox1.value+')['+selectBox2.value+']'+ price;
   } else {
     priceDisplay.textContent = "";
+    resetBtn.style.display = "none";
   }
 }
 
+// let total = 0;
+
 function getPrice(productId1, productId2) {
-  var total = 0;
+  let total = 0;
   switch (productId1) {
     case "월요일":
       total += 50;
@@ -44,10 +49,8 @@ function getPrice(productId1, productId2) {
   return total;
 }
 
-
-
 // 정상 작동
-function btn(total) {
+function btn() {
   i = total;
   if(i > 0) {
     alert(i+'입니다')

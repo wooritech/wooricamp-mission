@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./test.js"></script>
+</head>
+<body>
+  <select id="product-select-1" onchange="displayPrice()">
+    <option value="0">상품 선택</option>
+    <option value="월요일">상품 A</option>
+    <option value="화요일">상품 B</option>
+    <option value="수요일">상품 C</option>
+  </select>
+
+  <select id="product-select-2" onchange="displayPrice()">
+    <option value="0">상품 선택</option>
+    <option value="소고기">상품 X</option>
+    <option value="닭고기">상품 Y</option>
+    <option value="연어">상품 Z</option>
+  </select>
+
+  <div id="price-display"></div>
+  <span id="reset-btn" class="remove-product" style="display:none;" onclick="resetSelections()">Reset</span>
+
+</body>
+</html>
