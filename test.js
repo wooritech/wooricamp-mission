@@ -1,23 +1,30 @@
-function displayPrice() {
-  var selectBox1 = document.getElementById("product-select-1");
-  var selectedValue1 = selectBox1.value;
+document.getElementById("selectBox1").addEventListener("change", checkSelection);
+document.getElementById("selectBox2").addEventListener("change", checkSelection);
 
-  var selectBox2 = document.getElementById("product-select-2");
-  var selectedValue2 = selectBox2.value;
+var selectedValue1 = null;
+var selectedValue2 = null;
 
-  var priceDisplay = document.getElementById("price-display");
-  var resetBtn = document.getElementById("reset-btn");
+function checkSelection() {
+  // 첫 번째 셀렉트 박스에서 선택된 옵션의 값을 가져옵니다.
+  var selectBox1 = document.getElementById("selectBox1");
+  var selectedIndex1 = selectBox1.selectedIndex;
+  selectedValue1 = selectBox1.options[selectedIndex1].value;
 
+  // 두 번째 셀렉트 박스에서 선택된 옵션의 값을 가져옵니다.
+  var selectBox2 = document.getElementById("selectBox2");
+  var selectedIndex2 = selectBox2.selectedIndex;
+  selectedValue2 = selectBox2.options[selectedIndex2].value;
+
+  // 두 개의 셀렉트 박스가 모두 선택되었을 때만 li 요소를 생성합니다.
   if (selectedValue1 != "0" && selectedValue2 != "0") {
-    var price = getPrice(selectedValue1, selectedValue2);
-    priceDisplay.textContent = "가장 맛있는 강아지 사료 ("+selectedValue1+')['+selectedValue2+']'+ price;
-    resetBtn.style.display = "inline"; // 선택이 완료된 경우 Reset 버튼 보이기
-  } else {
-    priceDisplay.textContent = "";
-    resetBtn.style.display = "none"; // 선택이 초기화된 경우 Reset 버튼 숨기기
+    createListItem();
+    // 셀렉트 박스의 인덱스를 0으로 만들어서 초기화
+    selectBox1.selectedIndex = 0;
+    selectBox2.selectedIndex = 0;
   }
 }
 
+// 가격 산정 
 function getPrice(productId1, productId2) {
   var total = 0;
   switch (productId1) {
@@ -43,21 +50,40 @@ function getPrice(productId1, productId2) {
       total += 3000;
       break;
   }
-
+  // 산정된 가격 반환
   return total;
 }
 
-function resetSelections() {
-  var selectBox1 = document.getElementById("product-select-1");
-  var selectBox2 = document.getElementById("product-select-2");
+//생성되는 li에 추가될 내용들
+function createListItem() {
+  // 새로운 li 요소를 생성합니다.
+  var li = document.createElement("li");
+  var price = getPrice(selectedValue1,selectedValue2);
 
-  var selectedValue1 = selectBox1.value;
-  var selectedValue2 = selectBox2.value;
+  // 선택된 옵션들의 값을 조합하여 li 요소에 추가합니다.
+  li.textContent = "강아지 간식" + selectedValue1 + " / " + selectedValue2 + price;
 
-  selectBox1.selectedIndex = 0;
-  selectBox2.selectedIndex = 0;
+  // 삭제 버튼을 생성하고 li 요소에 추가합니다.
+  var deleteButton = document.createElement("button");
+  deleteButton.textContent = "삭제";
+  deleteButton.onclick = function() {
+    // 클릭된 삭제 버튼의 부모 요소를 찾아서 삭제합니다.
+    this.parentNode.remove();
+  };
+  li.appendChild(deleteButton);
 
-  if (selectedValue1 != "0" && selectedValue2 != "0") {
-    displayPrice(); // 선택이 초기화된 후에도 가격을 유지하고 다시 계산하여 표시
-  }
+  // 생성된 li 요소를 ul에 추가합니다.
+  document.getElementById("list").appendChild(li);
+}
+
+// 총액
+
+// 바로구매
+function btn() {
+  i = 0;
+  if(i > 0) {
+    alert(i+'입니다')
+  }else if (i = 0){
+    alert('상품을 선택해주세요')
+  };
 }
