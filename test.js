@@ -74,16 +74,23 @@ function createListItem() {
 
   // 생성된 li 요소를 ul에 추가합니다.
   document.getElementById("list").appendChild(li);
+
+  return price
 }
 
-// 총액
 
 // 바로구매
 function btn() {
-  i = 0;
-  if(i > 0) {
-    alert(i+'입니다')
-  }else if (i = 0){
-    alert('상품을 선택해주세요')
-  };
+  if (selectedValue1 && selectedValue2) {
+    // 선택된 모든 상품의 가격을 계산합니다.
+    var price1 = getPrice(selectedValue1, selectedValue2);
+    var price2 = getPrice(selectedValue1, selectedValue2); // 마지막으로 선택된 상품의 가격을 다시 구함
+    // 총 가격을 계산합니다.
+    var totalPrice = price1 + price2;
+    
+    // 알림창에 총 가격을 표시합니다.
+    alert('총 가격은 ' + totalPrice + '원 입니다.');
+  } else {
+    alert('상품을 선택해주세요');
+  }
 }
