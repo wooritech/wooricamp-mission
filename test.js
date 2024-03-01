@@ -54,14 +54,16 @@ function getPrice(productId1, productId2) {
   return total;
 }
 
+var totalPrice = 0; // 총 가격을 저장할 변수
+
 //생성되는 li에 추가될 내용들
 function createListItem() {
   // 새로운 li 요소를 생성합니다.
   var li = document.createElement("li");
-  var price = getPrice(selectedValue1,selectedValue2);
+  var price = getPrice(selectedValue1, selectedValue2);
 
   // 선택된 옵션들의 값을 조합하여 li 요소에 추가합니다.
-  li.textContent = "강아지 간식" + selectedValue1 + " / " + selectedValue2 + price;
+  li.textContent = "강아지 간식 " + selectedValue1 + " / " + selectedValue2 + " " + price + "원";
 
   // 삭제 버튼을 생성하고 li 요소에 추가합니다.
   var deleteButton = document.createElement("button");
@@ -69,25 +71,24 @@ function createListItem() {
   deleteButton.onclick = function() {
     // 클릭된 삭제 버튼의 부모 요소를 찾아서 삭제합니다.
     this.parentNode.remove();
+    
+    // 삭제된 상품의 가격을 총 가격에서 빼줍니다.
+    totalPrice -= price;
   };
   li.appendChild(deleteButton);
 
   // 생성된 li 요소를 ul에 추가합니다.
   document.getElementById("list").appendChild(li);
 
-  return price
-}
+  // 총 가격에 현재 상품의 가격을 추가합니다.
+  totalPrice += price;
 
+  return price;
+}
 
 // 바로구매
 function btn() {
   if (selectedValue1 && selectedValue2) {
-    // 선택된 모든 상품의 가격을 계산합니다.
-    var price1 = getPrice(selectedValue1, selectedValue2);
-    var price2 = getPrice(selectedValue1, selectedValue2); // 마지막으로 선택된 상품의 가격을 다시 구함
-    // 총 가격을 계산합니다.
-    var totalPrice = price1 + price2;
-    
     // 알림창에 총 가격을 표시합니다.
     alert('총 가격은 ' + totalPrice + '원 입니다.');
   } else {
