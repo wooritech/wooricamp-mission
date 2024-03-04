@@ -1,8 +1,14 @@
+document.addEventListener("DOMContentLoaded", function() {
+  // 페이지가 로드되면 총 가격을 표시합니다.
+  updateTotalPriceDisplay();
+});
+
 document.getElementById("selectBox1").addEventListener("change", checkSelection);
 document.getElementById("selectBox2").addEventListener("change", checkSelection);
 
 var selectedValue1 = null;
 var selectedValue2 = null;
+var totalPrice = 0; // 총 가격을 저장할 변수
 
 function checkSelection() {
   // 첫 번째 셀렉트 박스에서 선택된 옵션의 값을 가져옵니다.
@@ -16,7 +22,7 @@ function checkSelection() {
   selectedValue2 = selectBox2.options[selectedIndex2].value;
 
   // 두 개의 셀렉트 박스가 모두 선택되었을 때만 li 요소를 생성합니다.
-  if (selectedValue1 != "0" && selectedValue2 != "0") {
+  if (selectedValue1 !== "0" && selectedValue2 !== "0") {
     createListItem();
     // 셀렉트 박스의 인덱스를 0으로 만들어서 초기화
     selectBox1.selectedIndex = 0;
@@ -54,8 +60,6 @@ function getPrice(productId1, productId2) {
   return total;
 }
 
-var totalPrice = 0; // 총 가격을 저장할 변수
-
 //생성되는 li에 추가될 내용들
 function createListItem() {
   // 새로운 li 요소를 생성합니다.
@@ -74,6 +78,8 @@ function createListItem() {
     
     // 삭제된 상품의 가격을 총 가격에서 빼줍니다.
     totalPrice -= price;
+    // 총 가격을 업데이트하여 화면에 표시합니다.
+    updateTotalPriceDisplay();
   };
   li.appendChild(deleteButton);
 
@@ -82,8 +88,21 @@ function createListItem() {
 
   // 총 가격에 현재 상품의 가격을 추가합니다.
   totalPrice += price;
+  // 총 가격을 업데이트하여 화면에 표시합니다.
+  updateTotalPriceDisplay();
 
   return price;
+}
+
+// 총 가격을 화면에 표시하는 함수
+function updateTotalPriceDisplay() {
+  var totalPriceDisplay = document.getElementById("totalPriceDisplay");
+  // 총 가격이 0원인 경우와 그렇지 않은 경우를 나누어 처리합니다.
+  if (totalPrice === 0) {
+    totalPriceDisplay.textContent = "총 가격: 0원";
+  } else {
+    totalPriceDisplay.textContent = "총 가격: " + totalPrice + "원";
+  }
 }
 
 // 바로구매
